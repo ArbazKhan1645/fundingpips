@@ -1,0 +1,64 @@
+{
+  "hosting": {
+    "public": "out",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ],
+    "rewrites": [
+      {
+        "source": "/",
+        "destination": "/en/index.html"
+      },
+      {
+        "source": "/about",
+        "destination": "/en/about/index.html"
+      },
+      {
+        "source": "/affiliate",
+        "destination": "/en/affiliate/index.html"
+      },
+      {
+        "source": "/faq",
+        "destination": "/en/faq/index.html"
+      },
+      {
+        "source": "/signin",
+        "destination": "/en/signin/index.html"
+      },
+      {
+        "source": "/signup",
+        "destination": "/en/signup/index.html"
+      },
+      {
+        "source": "/trading-objectives",
+        "destination": "/en/trading-objectives/index.html"
+      },
+      {
+        "source": "/dashboard",
+        "destination": "/en/dashboard/index.html"
+      },
+      {
+        "source": "/dashboard/accounts",
+        "destination": "/en/dashboard/accounts/index.html"
+      },
+      {
+        "source": "/dashboard/objectives",
+        "destination": "/en/dashboard/objectives/index.html"
+      },
+      {
+        "source": "/dashboard/payouts",
+        "destination": "/en/dashboard/payouts/index.html"
+      },
+      {
+        "source": "/dashboard/settings",
+        "destination": "/en/dashboard/settings/index.html"
+      },
+      {
+        "source": "/dashboard/support",
+        "destination": "/en/dashboard/support/index.html"
+      }
+    ]
+  }
+}

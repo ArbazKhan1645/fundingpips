@@ -14,11 +14,13 @@ const geistSans = Geist({
   variable: '--font-geist-sans',
   subsets: ['latin'],
   display: 'swap',
+  preload: false,
 });
 const geistMono = Geist_Mono({
   variable: '--font-geist-mono',
   subsets: ['latin'],
   display: 'swap',
+  preload: false,
 });
 
 export function generateStaticParams() {
@@ -47,6 +49,7 @@ export default async function LocaleLayout({
       dir={isRtl ? 'rtl' : 'ltr'}
       suppressHydrationWarning
       className={`${geistSans.variable} ${geistMono.variable} dark`}
+      data-scroll-behavior="smooth"
     >
       <body className="antialiased">
         <ThemeProvider>
