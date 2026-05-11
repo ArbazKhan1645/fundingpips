@@ -34,3 +34,47 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+
+
+Fresh Clone / New System — Full Command List
+1. Prerequisites (ek baar install karo)
+
+node -v        # Node.js 18+ hona chahiye
+npm -v         # npm check
+Agar Node nahi hai: nodejs.org se LTS download karo.
+
+2. Clone & Setup
+
+git clone <your-repo-url>
+cd fundingpips
+npm install
+3. Build
+
+npm run build
+Yeh karta hai:
+
+next build — static HTML generate karta hai out/ folder mein
+node scripts/copy-rsc.js — RSC files copy karta hai
+4. Local Dev Server (development mein)
+
+npm run dev
+Browser mein kholo: http://localhost:3000
+
+5. Firebase Deploy (production)
+
+npm install -g firebase-tools    # ek baar globally install karo
+firebase login                   # ek baar login karo
+firebase deploy                  # build ke baad deploy karo
+Complete Flow (copy-paste ready)
+
+git clone <your-repo-url>
+cd fundingpips
+npm install
+npm run build
+firebase deploy
+Note: firebase login aur firebase-tools install sirf ek baar karna hoga. Agle time sirf yeh 3 commands:
+
+
+npm install
+npm run build
+firebase deploy
