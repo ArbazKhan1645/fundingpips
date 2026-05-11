@@ -30,18 +30,49 @@ const WINDOW_RIGHT = 78;
 export function AIChatbot() {
   const [isOpen, setIsOpen] = useState(false);
   const [inputValue, setInputValue] = useState('');
+  const [isMobile, setIsMobile] = useState(false);
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
   const { messages, isTyping, addMessage, setTyping } = useChatStore();
+
+  const isButtonHidden = isOpen && window.innerWidth < 640;
+  const windowRight = isButtonHidden ? 16 : 78;
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768 || /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent));
+    };
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
+  useEffect(() => {
+    if (isOpen && isMobile) {
+      document.body.style.overflow = 'hidden';
+      document.documentElement.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+      document.documentElement.style.overflow = '';
+    }
+
+    return () => {
+      document.body.style.overflow = '';
+      document.documentElement.style.overflow = '';
+    };
+  }, [isOpen, isMobile]);
 
   useEffect(() => {
     if (isOpen) {
       setTimeout(() => {
         messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
-        inputRef.current?.focus();
+        // Never auto-focus on mobile to prevent keyboard
+        if (!isMobile) {
+          inputRef.current?.focus();
+        }
       }, 120);
     }
-  }, [messages, isOpen]);
+  }, [messages, isOpen, isMobile]);
 
   const handleSend = async (text?: string) => {
     const msg = (text ?? inputValue).trim();
@@ -76,7 +107,7 @@ export function AIChatbot() {
             className="fixed z-40 flex flex-col rounded-2xl overflow-hidden shadow-2xl shadow-black/70 w-[320px] sm:w-[360px]"
             style={{
               bottom: 16,
-              right: WINDOW_RIGHT,
+              right: windowRight,
               maxHeight: 'calc(100vh - 32px)',
             }}
           >
@@ -203,7 +234,11 @@ export function AIChatbot() {
         onClick={() => setIsOpen(!isOpen)}
         whileHover={{ scale: 1.08 }}
         whileTap={{ scale: 0.94 }}
-        className="fixed bottom-4 right-4 z-50 rounded-2xl bg-gradient-to-br from-sky-500 to-cyan-400 flex items-center justify-center shadow-2xl shadow-sky-500/40 text-white"
+        className={cn(
+          "fixed bottom-4 right-4 z-50 rounded-2xl bg-gradient-to-br from-sky-500 to-cyan-400 flex items-center justify-center shadow-2xl shadow-sky-500/40 text-white",
+          // Hide button on small screens when chat is open
+          isButtonHidden ? "hidden" : ""
+        )}
         style={{ width: 52, height: 52 }}
       >
         <AnimatePresence mode="wait">

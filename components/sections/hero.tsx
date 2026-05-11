@@ -2,9 +2,11 @@
 
 import { motion } from 'framer-motion';
 import Link from 'next/link';
+import { useEffect, useState } from 'react';
 import { ArrowRight, TrendingUp, Shield, Zap, Users } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
+import { useReducedMotion, isMobileDevice } from '@/lib/use-reduced-motion';
 
 const metrics = [
   { label: 'Total Payouts', value: '$2.4M+', icon: TrendingUp, color: 'text-emerald-400', border: 'border-emerald-500/20' },
@@ -20,11 +22,24 @@ const floatingCards = [
 ];
 
 function HeroVisual() {
+  const prefersReducedMotion = useReducedMotion();
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    setIsMobile(isMobileDevice());
+  }, []);
+
+  const shouldReduceAnimations = prefersReducedMotion || isMobile;
+
   return (
     <div className="relative flex items-center justify-center" style={{ width: 460, height: 460 }}>
-      {/* Outer decorative rings */}
-      <div className="absolute inset-0 rounded-full border border-sky-500/8 animate-spin-slow" />
-      <div className="absolute inset-6 rounded-full border border-violet-500/8 animate-spin-reverse" />
+      {/* Outer decorative rings - disable on mobile */}
+      {!shouldReduceAnimations && (
+        <>
+          <div className="absolute inset-0 rounded-full border border-sky-500/8 animate-spin-slow" />
+          <div className="absolute inset-6 rounded-full border border-violet-500/8 animate-spin-reverse" />
+        </>
+      )}
 
       {/* Glow orbs */}
       <div className="absolute w-72 h-72 rounded-full bg-sky-600/8 blur-3xl" />
@@ -34,7 +49,11 @@ function HeroVisual() {
       <motion.div
         initial={{ opacity: 0, scale: 0.8 }}
         animate={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 0.7, delay: 0.3, type: 'spring', damping: 18 }}
+        transition={
+          shouldReduceAnimations
+            ? { duration: 0.3 }
+            : { duration: 0.7, delay: 0.3, type: 'spring', damping: 18 }
+        }
         className="relative z-10 w-52 rounded-3xl overflow-hidden shadow-2xl shadow-black/60"
         style={{ background: 'linear-gradient(145deg, rgba(14,165,233,0.15) 0%, rgba(8,20,40,0.95) 100%)', border: '1px solid rgba(14,165,233,0.25)' }}
       >
@@ -58,7 +77,11 @@ function HeroVisual() {
                 key={i}
                 initial={{ height: 0 }}
                 animate={{ height: `${h}%` }}
-                transition={{ duration: 0.6, delay: 0.5 + i * 0.05 }}
+                transition={
+                  shouldReduceAnimations
+                    ? { duration: 0.2, delay: 0 }
+                    : { duration: 0.6, delay: 0.5 + i * 0.05 }
+                }
                 className="flex-1 rounded-sm"
                 style={{ background: i >= 7 ? 'linear-gradient(180deg,#0ea5e9,#22d3ee)' : 'rgba(255,255,255,0.1)' }}
               />
@@ -80,7 +103,7 @@ function HeroVisual() {
       </motion.div>
 
       {/* Floating notification cards */}
-      {floatingCards.map((card, i) => {
+      {!shouldReduceAnimations && floatingCards.map((card, i) => {
         const positions = [
           { top: '8%', right: '-2%' },
           { bottom: '28%', right: '-8%' },
@@ -111,27 +134,31 @@ function HeroVisual() {
         );
       })}
 
-      {/* Orbiting dot */}
-      <motion.div
-        animate={{ rotate: 360 }}
-        transition={{ duration: 8, repeat: Infinity, ease: 'linear' }}
-        className="absolute inset-0"
-      >
-        <div
-          className="w-3 h-3 rounded-full bg-sky-400 shadow-lg shadow-sky-400/60 absolute"
-          style={{ top: '4%', left: '50%', marginLeft: -6 }}
-        />
-      </motion.div>
-      <motion.div
-        animate={{ rotate: -360 }}
-        transition={{ duration: 13, repeat: Infinity, ease: 'linear' }}
-        className="absolute inset-8"
-      >
-        <div
-          className="w-2 h-2 rounded-full bg-violet-400 shadow-lg shadow-violet-400/60 absolute"
-          style={{ bottom: '0%', left: '50%', marginLeft: -4 }}
-        />
-      </motion.div>
+      {/* Orbiting dots - disable on mobile */}
+      {!shouldReduceAnimations && (
+        <>
+          <motion.div
+            animate={{ rotate: 360 }}
+            transition={{ duration: 8, repeat: Infinity, ease: 'linear' }}
+            className="absolute inset-0"
+          >
+            <div
+              className="w-3 h-3 rounded-full bg-sky-400 shadow-lg shadow-sky-400/60 absolute"
+              style={{ top: '4%', left: '50%', marginLeft: -6 }}
+            />
+          </motion.div>
+          <motion.div
+            animate={{ rotate: -360 }}
+            transition={{ duration: 13, repeat: Infinity, ease: 'linear' }}
+            className="absolute inset-8"
+          >
+            <div
+              className="w-2 h-2 rounded-full bg-violet-400 shadow-lg shadow-violet-400/60 absolute"
+              style={{ bottom: '0%', left: '50%', marginLeft: -4 }}
+            />
+          </motion.div>
+        </>
+      )}
     </div>
   );
 }

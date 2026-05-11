@@ -37,31 +37,55 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-::-webkit-scrollbar { width: 5px; }
-::-webkit-scrollbar-track { background: #0a1628; }
-::-webkit-scrollbar-thumb { background: #1e3a5f; border-radius: 3px; }
-::-webkit-scrollbar-thumb:hover { background: #0ea5e9; }
+::-webkit-scrollbar {
+  width: 5px;
+}
 
-::selection { background: rgba(14,165,233,0.3); color: #e2e8f0; }
+::-webkit-scrollbar-track {
+  background: #0a1628;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #1e3a5f;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #0ea5e9;
+}
+
+::selection {
+  background: rgba(14, 165, 233, 0.3);
+  color: #e2e8f0;
+}
 
 /* ─── Glassmorphism ─────────────────────────────────── */
 .glass {
-  background: rgba(255,255,255,0.04);
-  border: 1px solid rgba(255,255,255,0.08);
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
 }
+
 .glass-strong {
-  background: rgba(255,255,255,0.07);
-  border: 1px solid rgba(255,255,255,0.12);
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(255, 255, 255, 0.12);
   backdrop-filter: blur(40px);
   -webkit-backdrop-filter: blur(40px);
 }
 
 /* ─── Glow effects ──────────────────────────────────── */
-.glow-blue  { box-shadow: 0 0 40px rgba(14,165,233,0.25); }
-.glow-purple{ box-shadow: 0 0 40px rgba(139,92,246,0.25); }
-.glow-cyan  { box-shadow: 0 0 40px rgba(34,211,238,0.25); }
+.glow-blue {
+  box-shadow: 0 0 40px rgba(14, 165, 233, 0.25);
+}
+
+.glow-purple {
+  box-shadow: 0 0 40px rgba(139, 92, 246, 0.25);
+}
+
+.glow-cyan {
+  box-shadow: 0 0 40px rgba(34, 211, 238, 0.25);
+}
 
 /* ─── Gradient text ─────────────────────────────────── */
 .gradient-text {
@@ -70,6 +94,7 @@ body {
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
+
 .gradient-text-blue {
   background: linear-gradient(135deg, #38bdf8, #0ea5e9);
   -webkit-background-clip: text;
@@ -80,39 +105,104 @@ body {
 /* ─── Grid background ───────────────────────────────── */
 .grid-bg {
   background-image:
-    linear-gradient(rgba(14,165,233,0.05) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(14,165,233,0.05) 1px, transparent 1px);
+    linear-gradient(rgba(14, 165, 233, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(14, 165, 233, 0.05) 1px, transparent 1px);
   background-size: 60px 60px;
 }
 
 /* ─── Animations ────────────────────────────────────── */
 @keyframes float {
-  0%,100% { transform: translateY(0); }
-  50%      { transform: translateY(-20px); }
-}
-@keyframes pulse-glow {
-  0%,100% { box-shadow: 0 0 20px rgba(14,165,233,0.3); }
-  50%      { box-shadow: 0 0 50px rgba(14,165,233,0.7); }
-}
-@keyframes marquee {
-  0%   { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
-}
-@keyframes spin-slow    { to { transform: rotate(360deg); } }
-@keyframes spin-reverse { to { transform: rotate(-360deg); } }
-@keyframes gradient-shift {
-  0%,100% { background-position: 0% 50%; }
-  50%      { background-position: 100% 50%; }
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-20px);
+  }
 }
 
-.animate-float          { animation: float 6s ease-in-out infinite; }
-.animate-float-delayed  { animation: float 6s ease-in-out infinite 2s; }
-.animate-pulse-glow     { animation: pulse-glow 2s ease-in-out infinite; }
-.animate-marquee        { animation: marquee 35s linear infinite; }
-.animate-marquee-fast   { animation: marquee 18s linear infinite; }
-.animate-spin-slow      { animation: spin-slow 20s linear infinite; }
-.animate-spin-reverse   { animation: spin-reverse 25s linear infinite; }
+@keyframes pulse-glow {
+
+  0%,
+  100% {
+    box-shadow: 0 0 20px rgba(14, 165, 233, 0.3);
+  }
+
+  50% {
+    box-shadow: 0 0 50px rgba(14, 165, 233, 0.7);
+  }
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes spin-slow {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes spin-reverse {
+  to {
+    transform: rotate(-360deg);
+  }
+}
+
+@keyframes gradient-shift {
+
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.animate-float-delayed {
+  animation: float 6s ease-in-out infinite 2s;
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+.animate-marquee {
+  animation: marquee 35s linear infinite;
+}
+
+.animate-marquee-fast {
+  animation: marquee 18s linear infinite;
+}
+
+.animate-spin-slow {
+  animation: spin-slow 20s linear infinite;
+}
+
+.animate-spin-reverse {
+  animation: spin-reverse 25s linear infinite;
+}
 
 /* ─── Utility ───────────────────────────────────────── */
-.hide-scrollbar::-webkit-scrollbar { display: none; }
-.hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}

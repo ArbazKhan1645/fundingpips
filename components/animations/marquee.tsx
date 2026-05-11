@@ -1,6 +1,8 @@
 'use client';
 
+import { useEffect, useState } from 'react';
 import { cn } from '@/lib/utils';
+import { useReducedMotion, isMobileDevice } from '@/lib/use-reduced-motion';
 
 interface MarqueeProps {
   children: React.ReactNode;
@@ -23,12 +25,21 @@ export function Marquee({
   reverse = false,
   pauseOnHover = false,
 }: MarqueeProps) {
+  const prefersReducedMotion = useReducedMotion();
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    setIsMobile(isMobileDevice());
+  }, []);
+
+  const shouldDisableAnimation = prefersReducedMotion || isMobile;
+
   return (
     <div className={cn('overflow-hidden', className)}>
       <div
         className={cn(
           'flex w-max',
-          speedClasses[speed],
+          !shouldDisableAnimation && speedClasses[speed],
           reverse && '[animation-direction:reverse]',
           pauseOnHover && 'hover:[animation-play-state:paused]'
         )}
