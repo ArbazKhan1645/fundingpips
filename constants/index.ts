@@ -1,4 +1,4 @@
-export const APP_NAME = 'FundingPips';
+export const APP_NAME = 'Lordfunded';
 export const APP_URL = process.env.NEXT_PUBLIC_APP_URL || 'http://localhost:3000';
 export const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000/api';
 
@@ -14,11 +14,11 @@ export const NAV_LINKS = [
 ] as const;
 
 export const SOCIAL_LINKS = {
-  twitter: 'https://twitter.com/fundingpips',
-  instagram: 'https://instagram.com/fundingpips',
-  discord: 'https://discord.gg/fundingpips',
-  telegram: 'https://t.me/fundingpips',
-  youtube: 'https://youtube.com/@fundingpips',
+  twitter: 'https://twitter.com/lordfunded',
+  instagram: 'https://instagram.com/lordfunded',
+  discord: 'https://discord.gg/lordfunded',
+  telegram: 'https://t.me/lordfunded',
+  youtube: 'https://youtube.com/@lordfunded',
 } as const;
 
 export const CHALLENGE_PHASES = {

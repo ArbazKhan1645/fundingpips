@@ -4,8 +4,8 @@ export const mockFAQ: FAQItem[] = [
   {
     id: '1',
     category: 'General',
-    question: 'What is FundingPips?',
-    answer: 'FundingPips is a leading proprietary trading firm that provides traders with access to substantial capital. After passing our evaluation process, traders receive funded accounts ranging from $10,000 to $200,000 and keep up to 90% of their profits.',
+    question: 'What is Lordfunded?',
+    answer: 'Lordfunded is a leading proprietary trading firm that provides traders with access to substantial capital. After passing our evaluation process, traders receive funded accounts ranging from $10,000 to $200,000 and keep up to 90% of their profits.',
   },
   {
     id: '2',

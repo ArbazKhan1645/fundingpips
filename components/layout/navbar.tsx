@@ -83,10 +83,10 @@ export function Navbar() {
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2.5 shrink-0">
             <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-sky-500 to-cyan-400 flex items-center justify-center shadow-lg shadow-sky-500/30 shrink-0">
-              <span className="text-white font-black text-sm">FP</span>
+              <span className="text-white font-black text-sm">LF</span>
             </div>
             <span className="font-bold text-white text-lg tracking-tight">
-              Funding<span className="gradient-text-blue">Pips</span>
+              Lord<span className="gradient-text-blue">funded</span>
             </span>
           </Link>
 

@@ -80,10 +80,10 @@ export function WhyChooseUsSection() {
     <section className="py-24 relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <FadeIn className="text-center mb-16">
-          <Badge variant="purple" className="mb-4">Why FundingPips</Badge>
+          <Badge variant="purple" className="mb-4">Why Lordfunded</Badge>
           <h2 className="text-4xl sm:text-5xl font-black text-white mb-4">
             Why Thousands Choose{' '}
-            <span className="gradient-text">FundingPips</span>
+            <span className="gradient-text">Lordfunded</span>
           </h2>
           <p className="text-lg text-slate-400 max-w-2xl mx-auto">
             Built for serious traders who demand the best tools, fairest rules, and fastest payouts.

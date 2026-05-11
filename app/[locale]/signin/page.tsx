@@ -75,10 +75,10 @@ export default function SignInPage() {
         >
           <Link href="/" className="inline-flex items-center gap-2">
             <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-sky-500 to-cyan-400 flex items-center justify-center shadow-lg shadow-sky-500/30">
-              <span className="text-white font-black">FP</span>
+              <span className="text-white font-black">LF</span>
             </div>
             <span className="font-bold text-white text-xl">
-              Funding<span className="gradient-text-blue">Pips</span>
+              Lord<span className="gradient-text-blue">funded</span>
             </span>
           </Link>
         </motion.div>
@@ -91,7 +91,7 @@ export default function SignInPage() {
         >
           <div className="text-center mb-8">
             <h1 className="text-2xl font-black text-white">Welcome back</h1>
-            <p className="text-sm text-slate-400 mt-1">Sign in to your FundingPips account</p>
+            <p className="text-sm text-slate-400 mt-1">Sign in to your Lordfunded account</p>
           </div>
 
           {/* Google Button */}

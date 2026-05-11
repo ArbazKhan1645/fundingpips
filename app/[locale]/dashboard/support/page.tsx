@@ -42,7 +42,7 @@ const channels = [
   {
     icon: Users,
     title: 'Discord Community',
-    description: 'Join 20,000+ traders. Share strategies, get tips, and connect with the FundingPips team.',
+    description: 'Join 20,000+ traders. Share strategies, get tips, and connect with the Lordfunded team.',
     action: 'Join Discord',
     color: 'from-indigo-500 to-blue-400',
     shadow: 'shadow-indigo-500/20',

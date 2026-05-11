@@ -43,7 +43,7 @@ export default function FAQPage() {
               <span className="gradient-text">Questions</span>
             </h1>
             <p className="text-lg text-slate-400 mb-8">
-              Everything you need to know about FundingPips
+              Everything you need to know about Lordfunded
             </p>
 
             {/* Search */}
@@ -154,7 +154,7 @@ export default function FAQPage() {
                 <a href="#" className="px-6 py-3 glass rounded-xl border border-white/10 text-sm text-slate-300 hover:text-white hover:border-sky-500/30 transition-all">
                   Join Discord
                 </a>
-                <a href="mailto:support@fundingpips.com" className="px-6 py-3 bg-sky-500 rounded-xl text-sm text-white font-medium hover:bg-sky-400 transition-all">
+                <a href="mailto:support@lordfunded.com" className="px-6 py-3 bg-sky-500 rounded-xl text-sm text-white font-medium hover:bg-sky-400 transition-all">
                   Email Support
                 </a>
               </div>

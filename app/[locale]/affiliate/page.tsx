@@ -34,7 +34,7 @@ const howItWorks = [
 
 export default function AffiliatePage() {
   const [copied, setCopied] = useState(false);
-  const mockLink = 'https://fundingpips.com/ref/YOURCODE';
+  const mockLink = 'https://lordfunded.com/ref/YOURCODE';
 
   const handleCopy = () => {
     navigator.clipboard.writeText(mockLink);
@@ -62,7 +62,7 @@ export default function AffiliatePage() {
               <br />Per Referral
             </h1>
             <p className="text-xl text-slate-400 max-w-2xl mx-auto mb-10">
-              Join our affiliate program and earn generous commissions for every trader you refer to FundingPips.
+              Join our affiliate program and earn generous commissions for every trader you refer to Lordfunded.
               No cap on earnings.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">

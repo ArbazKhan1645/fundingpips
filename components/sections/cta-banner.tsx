@@ -43,7 +43,7 @@ export function CTABanner() {
                   <span className="gradient-text">Funded Trader?</span>
                 </h2>
                 <p className="text-lg text-slate-300">
-                  Join 50,000+ traders who already trade with FundingPips capital.
+                  Join 50,000+ traders who already trade with Lordfunded capital.
                   Start your challenge today — risk-free with our 14-day guarantee.
                 </p>
               </div>

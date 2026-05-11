@@ -10,7 +10,7 @@ import { Badge } from '@/components/ui/badge';
 import { Target, Heart, Globe, Zap } from 'lucide-react';
 
 const timeline = [
-  { year: '2020', title: 'Founded', description: 'FundingPips was founded with a mission to democratize access to trading capital for traders worldwide.' },
+  { year: '2020', title: 'Founded', description: 'Lordfunded was founded with a mission to democratize access to trading capital for traders worldwide.' },
   { year: '2021', title: 'First 1,000 Funded Traders', description: 'We reached our first milestone of 1,000 successfully funded traders across 50+ countries.' },
   { year: '2022', title: '$500K in Payouts', description: 'Crossed the $500,000 mark in total payouts, proving our commitment to trader success.' },
   { year: '2023', title: 'Global Expansion', description: 'Expanded to 100+ countries, launched MT5 support, and introduced our scaling program.' },
@@ -53,7 +53,7 @@ export default function AboutPage() {
               <span className="gradient-text">Fund Traders</span>
             </h1>
             <p className="text-xl text-slate-400 max-w-3xl mx-auto leading-relaxed">
-              FundingPips was born from a simple belief: great traders shouldn't be held back by a lack of capital.
+              Lordfunded was born from a simple belief: great traders shouldn't be held back by a lack of capital.
               We built the platform we always wished existed.
             </p>
           </FadeIn>
@@ -74,7 +74,7 @@ export default function AboutPage() {
                   Every great trader deserves the chance to grow their career with proper capital. Our mission is to identify skilled traders, fund them with real capital, and build a partnership based on mutual success.
                 </p>
                 <p className="text-slate-400 leading-relaxed">
-                  We've paid out over $2.4 million to traders worldwide and we're just getting started. When you win, we win — that's the FundingPips promise.
+                  We've paid out over $2.4 million to traders worldwide and we're just getting started. When you win, we win — that's the Lordfunded promise.
                 </p>
               </div>
             </FadeIn>
@@ -157,7 +157,7 @@ export default function AboutPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <FadeIn className="text-center mb-12">
             <h2 className="text-3xl font-black text-white">Meet the <span className="gradient-text">Team</span></h2>
-            <p className="text-slate-400 mt-3">The passionate people behind FundingPips</p>
+            <p className="text-slate-400 mt-3">The passionate people behind Lordfunded</p>
           </FadeIn>
           <StaggerContainer className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
             {team.map((member) => (

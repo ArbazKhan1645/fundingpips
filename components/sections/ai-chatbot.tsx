@@ -121,7 +121,7 @@ export function AIChatbot() {
                   <span className="absolute -bottom-0.5 -right-0.5 w-3 h-3 bg-emerald-400 border-2 border-[#0c1e35] rounded-full" />
                 </div>
                 <div>
-                  <p className="text-sm font-bold text-white leading-none">FundingPips AI</p>
+                  <p className="text-sm font-bold text-white leading-none">Lordfunded AI</p>
                   <p className="text-xs text-emerald-400 mt-0.5">Online · Typically replies instantly</p>
                 </div>
               </div>
@@ -223,7 +223,7 @@ export function AIChatbot() {
                   <Send size={13} />
                 </button>
               </div>
-              <p className="text-center text-[10px] text-slate-600 mt-1.5">Powered by FundingPips AI</p>
+              <p className="text-center text-[10px] text-slate-600 mt-1.5">Powered by Lordfunded AI</p>
             </div>
           </motion.div>
         )}

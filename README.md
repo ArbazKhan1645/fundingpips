@@ -46,7 +46,7 @@ Agar Node nahi hai: nodejs.org se LTS download karo.
 2. Clone & Setup
 
 git clone <your-repo-url>
-cd fundingpips
+cd lordfunded
 npm install
 3. Build
 
@@ -68,7 +68,7 @@ firebase deploy                  # build ke baad deploy karo
 Complete Flow (copy-paste ready)
 
 git clone <your-repo-url>
-cd fundingpips
+cd lordfunded
 npm install
 npm run build
 firebase deploy

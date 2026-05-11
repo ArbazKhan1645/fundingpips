@@ -59,10 +59,10 @@ export function Footer() {
             <div className="space-y-6">
               <Link href="/" className="flex items-center gap-2">
                 <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-sky-500 to-cyan-400 flex items-center justify-center shadow-lg shadow-sky-500/30">
-                  <span className="text-white font-black">FP</span>
+                  <span className="text-white font-black">LF</span>
                 </div>
                 <span className="font-bold text-white text-xl">
-                  Funding<span className="gradient-text-blue">Pips</span>
+                  Lord<span className="gradient-text-blue">funded</span>
                 </span>
               </Link>
               <p className="text-sm text-slate-400 leading-relaxed max-w-xs">
@@ -125,7 +125,7 @@ export function Footer() {
         {/* Bottom bar */}
         <div className="mt-16 pt-8 border-t border-white/5 flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="text-xs text-slate-500">
-            © {new Date().getFullYear()} FundingPips. All rights reserved.
+            © {new Date().getFullYear()} Lordfunded. All rights reserved.
           </p>
           <p className="text-xs text-slate-600 max-w-xl text-center">
             Risk Disclosure: Trading financial instruments involves substantial risk of loss. Past performance does not guarantee future results.
