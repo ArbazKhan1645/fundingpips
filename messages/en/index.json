@@ -1,0 +1,82 @@
+{
+  "nav": {
+    "home": "Home",
+    "objectives": "Trading Objectives",
+    "about": "About Us",
+    "affiliate": "Affiliate",
+    "faq": "FAQ",
+    "signIn": "Sign In",
+    "dashboard": "Dashboard",
+    "getStarted": "Get Started"
+  },
+  "hero": {
+    "badge": "Trusted by 50,000+ Traders Worldwide",
+    "title": "Trade with",
+    "titleHighlight": "Confidence",
+    "titleEnd": "Get Funded Today",
+    "description": "Pass our evaluation and access up to $200K in funded capital. Keep up to 90% of your profits. No experience required.",
+    "cta": "Start Challenge",
+    "ctaSecondary": "Learn More",
+    "stat1Label": "Total Payouts",
+    "stat2Label": "Funded Traders",
+    "stat3Label": "Success Rate",
+    "stat4Label": "Countries"
+  },
+  "challenges": {
+    "title": "Choose Your Challenge",
+    "subtitle": "Start your trading journey with our flexible funding programs",
+    "mostPopular": "Most Popular",
+    "getStarted": "Get Started",
+    "perMonth": "/one-time"
+  },
+  "features": {
+    "title": "Why Thousands Choose FundingPips",
+    "subtitle": "Built for serious traders who demand the best"
+  },
+  "stats": {
+    "title": "Trusted by Traders Globally",
+    "subtitle": "Our numbers speak for themselves"
+  },
+  "faq": {
+    "title": "Frequently Asked Questions",
+    "subtitle": "Everything you need to know about FundingPips"
+  },
+  "footer": {
+    "description": "The world's leading prop trading firm. Get funded and trade with confidence.",
+    "newsletter": "Subscribe to Newsletter",
+    "newsletterPlaceholder": "Enter your email",
+    "subscribe": "Subscribe",
+    "rights": "All rights reserved."
+  },
+  "auth": {
+    "signIn": "Sign In",
+    "signUp": "Create Account",
+    "email": "Email Address",
+    "password": "Password",
+    "forgotPassword": "Forgot Password?",
+    "rememberMe": "Remember Me",
+    "noAccount": "Don't have an account?",
+    "hasAccount": "Already have an account?",
+    "orContinueWith": "Or continue with",
+    "google": "Continue with Google",
+    "firstName": "First Name",
+    "lastName": "Last Name",
+    "phone": "Phone Number",
+    "country": "Country",
+    "confirmPassword": "Confirm Password",
+    "dob": "Date of Birth",
+    "title": "Title",
+    "next": "Next",
+    "back": "Back",
+    "submit": "Create Account"
+  },
+  "dashboard": {
+    "overview": "Overview",
+    "accounts": "My Accounts",
+    "payouts": "Payouts",
+    "objectives": "Objectives",
+    "settings": "Settings",
+    "support": "Support",
+    "logout": "Logout"
+  }
+}
