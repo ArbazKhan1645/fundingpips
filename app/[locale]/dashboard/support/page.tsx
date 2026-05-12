@@ -24,8 +24,8 @@ const channels = [
     title: 'Live Chat',
     description: 'Get instant answers from our support team — average response under 2 minutes.',
     action: 'Start Chat',
-    color: 'from-sky-500 to-cyan-400',
-    shadow: 'shadow-sky-500/20',
+    color: 'from-amber-600 to-amber-400',
+    shadow: 'shadow-amber-500/20',
     badge: 'Online',
     badgeColor: 'text-emerald-400 bg-emerald-400/10 border-emerald-400/20',
   },
@@ -34,20 +34,20 @@ const channels = [
     title: 'Email Support',
     description: 'Send us a detailed message and we\'ll reply within 24 hours.',
     action: 'Send Email',
-    color: 'from-violet-500 to-purple-400',
-    shadow: 'shadow-violet-500/20',
+    color: 'from-amber-700 to-amber-500',
+    shadow: 'shadow-amber-600/20',
     badge: '< 24h',
-    badgeColor: 'text-violet-400 bg-violet-400/10 border-violet-400/20',
+    badgeColor: 'text-amber-400 bg-amber-400/10 border-amber-400/20',
   },
   {
     icon: Users,
     title: 'Discord Community',
     description: 'Join 20,000+ traders. Share strategies, get tips, and connect with the Lordfunded team.',
     action: 'Join Discord',
-    color: 'from-indigo-500 to-blue-400',
-    shadow: 'shadow-indigo-500/20',
+    color: 'from-yellow-600 to-amber-500',
+    shadow: 'shadow-yellow-500/20',
     badge: '20K+ members',
-    badgeColor: 'text-indigo-400 bg-indigo-400/10 border-indigo-400/20',
+    badgeColor: 'text-yellow-400 bg-yellow-400/10 border-yellow-400/20',
   },
 ];
 
@@ -69,7 +69,7 @@ function FAQItem({ q, a }: { q: string; a: string }) {
           {q}
         </span>
         {open
-          ? <ChevronUp size={16} className="text-sky-400 shrink-0 mt-0.5" />
+          ? <ChevronUp size={16} className="text-amber-400 shrink-0 mt-0.5" />
           : <ChevronDown size={16} className="text-slate-500 shrink-0 mt-0.5" />}
       </div>
       {open && (
@@ -129,7 +129,7 @@ export default function SupportPage() {
               <p className="text-sm font-bold text-white">{ch.title}</p>
               <p className="text-xs text-slate-400 mt-1 leading-relaxed">{ch.description}</p>
             </div>
-            <button className="mt-auto flex items-center gap-1.5 text-xs font-semibold text-sky-400 hover:text-sky-300 transition-colors">
+            <button className="mt-auto flex items-center gap-1.5 text-xs font-semibold text-amber-400 hover:text-sky-300 transition-colors">
               {ch.action} <ExternalLink size={12} />
             </button>
           </motion.div>
@@ -156,7 +156,7 @@ export default function SupportPage() {
               <p className="text-sm text-slate-400 max-w-xs">Our support team will get back to you within 24 hours.</p>
               <button
                 onClick={() => { setSubmitted(false); setSubject(''); setMessage(''); }}
-                className="text-xs text-sky-400 hover:text-sky-300 mt-2 transition-colors"
+                className="text-xs text-amber-400 hover:text-sky-300 mt-2 transition-colors"
               >
                 Send another message
               </button>
@@ -176,7 +176,7 @@ export default function SupportPage() {
                   placeholder="Describe your issue in detail..."
                   value={message}
                   onChange={(e) => setMessage(e.target.value)}
-                  className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-sm text-white placeholder:text-slate-500 focus:outline-none focus:border-sky-500/60 transition-all resize-none"
+                  className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-sm text-white placeholder:text-slate-500 focus:outline-none focus:border-amber-500/60 transition-all resize-none"
                 />
               </div>
               <Button
@@ -222,10 +222,10 @@ export default function SupportPage() {
             <a
               key={r.title}
               href={r.href}
-              className="flex items-start gap-3 p-4 rounded-xl border border-white/6 hover:border-sky-500/30 hover:bg-sky-500/5 transition-all group"
+              className="flex items-start gap-3 p-4 rounded-xl border border-white/6 hover:border-amber-500/30 hover:bg-amber-500/5 transition-all group"
             >
-              <div className="w-8 h-8 rounded-lg bg-white/5 flex items-center justify-center shrink-0 group-hover:bg-sky-500/15 transition-colors">
-                <r.icon size={15} className="text-slate-400 group-hover:text-sky-400 transition-colors" />
+              <div className="w-8 h-8 rounded-lg bg-white/5 flex items-center justify-center shrink-0 group-hover:bg-amber-500/15 transition-colors">
+                <r.icon size={15} className="text-slate-400 group-hover:text-amber-400 transition-colors" />
               </div>
               <div>
                 <p className="text-sm font-semibold text-slate-200 group-hover:text-white transition-colors">{r.title}</p>

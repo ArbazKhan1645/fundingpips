@@ -45,7 +45,7 @@ export function DashboardTopbar() {
             className="relative w-9 h-9 rounded-xl flex items-center justify-center text-slate-400 hover:text-white hover:bg-white/5 transition-all"
           >
             <Bell size={18} />
-            <span className="absolute top-1.5 right-1.5 w-2 h-2 rounded-full bg-sky-400 border border-[#050d1a]" />
+            <span className="absolute top-1.5 right-1.5 w-2 h-2 rounded-full bg-amber-400 border border-[#0a0a0a]" />
           </button>
 
           <AnimatePresence>
@@ -59,16 +59,16 @@ export function DashboardTopbar() {
               >
                 <div className="px-4 py-3 border-b border-white/5 flex items-center justify-between">
                   <p className="text-sm font-semibold text-white">Notifications</p>
-                  <span className="text-xs text-sky-400">Mark all read</span>
+                  <span className="text-xs text-amber-400">Mark all read</span>
                 </div>
                 <div className="max-h-64 overflow-y-auto">
                   {notifications.map((n, i) => (
                     <div
                       key={i}
-                      className={`px-4 py-3 border-b border-white/5 hover:bg-white/3 transition-colors cursor-pointer ${n.unread ? 'bg-sky-500/3' : ''}`}
+                      className={`px-4 py-3 border-b border-white/5 hover:bg-white/3 transition-colors cursor-pointer ${n.unread ? 'bg-amber-500/3' : ''}`}
                     >
                       <div className="flex items-start gap-2">
-                        {n.unread && <span className="w-1.5 h-1.5 rounded-full bg-sky-400 mt-1.5 shrink-0" />}
+                        {n.unread && <span className="w-1.5 h-1.5 rounded-full bg-amber-400 mt-1.5 shrink-0" />}
                         <div className={n.unread ? '' : 'ml-3.5'}>
                           <p className="text-sm font-medium text-white">{n.title}</p>
                           <p className="text-xs text-slate-400 mt-0.5">{n.desc}</p>
@@ -86,7 +86,7 @@ export function DashboardTopbar() {
         {/* Avatar */}
         {user && (
           <div className="flex items-center gap-2.5 pl-3 border-l border-white/5">
-            <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-sky-500 to-violet-500 flex items-center justify-center text-white font-bold text-sm">
+            <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-amber-600 to-amber-800 flex items-center justify-center text-black font-bold text-sm">
               {user.firstName[0]}{user.lastName[0]}
             </div>
             <div className="hidden sm:block">

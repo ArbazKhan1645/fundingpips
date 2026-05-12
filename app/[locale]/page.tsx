@@ -11,7 +11,7 @@ import { AIChatbot } from '@/components/sections/ai-chatbot';
 
 export default function HomePage() {
   return (
-    <div className="min-h-screen bg-[#050d1a]">
+    <div className="min-h-screen bg-[#0a0a0a]">
       <Navbar />
       <HeroSection />
       <TrustedBySection />

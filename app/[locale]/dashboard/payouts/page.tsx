@@ -36,7 +36,7 @@ export default function PayoutsPage() {
         {[
           { label: 'Total Earned', value: formatCurrency(total), icon: Banknote, color: 'text-emerald-400', bg: 'bg-emerald-500/10' },
           { label: 'Pending', value: formatCurrency(pending), icon: Clock, color: 'text-yellow-400', bg: 'bg-yellow-500/10' },
-          { label: 'Total Payouts', value: mockPayouts.length.toString(), icon: ArrowUpRight, color: 'text-sky-400', bg: 'bg-sky-500/10' },
+          { label: 'Total Payouts', value: mockPayouts.length.toString(), icon: ArrowUpRight, color: 'text-amber-400', bg: 'bg-amber-500/10' },
         ].map((card) => (
           <StaggerItem key={card.label}>
             <div className="glass rounded-2xl p-5 border border-white/8">
@@ -53,19 +53,19 @@ export default function PayoutsPage() {
       {/* Payout request modal */}
       {showRequest && (
         <FadeIn>
-          <div className="glass rounded-2xl p-6 border border-sky-500/30 bg-sky-500/5">
+          <div className="glass rounded-2xl p-6 border border-amber-500/30 bg-amber-500/5">
             <h3 className="text-base font-bold text-white mb-4">Request Payout</h3>
             <div className="grid sm:grid-cols-2 gap-4 mb-4">
               <div>
                 <label className="text-sm text-slate-400 mb-1.5 block">Amount (USD)</label>
-                <input type="number" placeholder="Enter amount..." className="w-full h-11 px-4 rounded-xl bg-white/5 border border-white/10 text-white text-sm focus:outline-none focus:border-sky-500/50" />
+                <input type="number" placeholder="Enter amount..." className="w-full h-11 px-4 rounded-xl bg-white/5 border border-white/10 text-white text-sm focus:outline-none focus:border-amber-500/50" />
               </div>
               <div>
                 <label className="text-sm text-slate-400 mb-1.5 block">Payment Method</label>
-                <select className="w-full h-11 px-4 rounded-xl bg-white/5 border border-white/10 text-white text-sm focus:outline-none focus:border-sky-500/50">
-                  <option className="bg-[#0a1628]">USDT (TRC20)</option>
-                  <option className="bg-[#0a1628]">Bank Transfer</option>
-                  <option className="bg-[#0a1628]">Skrill</option>
+                <select className="w-full h-11 px-4 rounded-xl bg-white/5 border border-white/10 text-white text-sm focus:outline-none focus:border-amber-500/50">
+                  <option className="bg-[#0a0a0a]">USDT (TRC20)</option>
+                  <option className="bg-[#0a0a0a]">Bank Transfer</option>
+                  <option className="bg-[#0a0a0a]">Skrill</option>
                 </select>
               </div>
             </div>

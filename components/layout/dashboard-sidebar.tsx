@@ -30,8 +30,8 @@ export function DashboardSidebar() {
       {/* Logo */}
       <div className="flex items-center justify-between p-6 pb-8">
         <Link href="/" className="flex items-center gap-2">
-          <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-sky-500 to-cyan-400 flex items-center justify-center shadow-lg shadow-sky-500/30">
-            <span className="text-white font-black text-sm">LF</span>
+          <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-amber-600 to-amber-400 flex items-center justify-center shadow-lg shadow-amber-500/30">
+            <span className="text-black font-black text-sm">LF</span>
           </div>
           <span className="font-bold text-white text-lg">
             Lord<span className="gradient-text-blue">funded</span>
@@ -57,14 +57,14 @@ export function DashboardSidebar() {
               className={cn(
                 'flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium transition-all duration-200 group relative',
                 isActive
-                  ? 'bg-sky-500/15 text-sky-400 border border-sky-500/25'
+                  ? 'bg-amber-500/15 text-amber-400 border border-amber-500/25'
                   : 'text-slate-400 hover:text-white hover:bg-white/5'
               )}
             >
-              <Icon size={18} className={isActive ? 'text-sky-400' : ''} />
+              <Icon size={18} className={isActive ? 'text-amber-400' : ''} />
               {label}
               {isActive && (
-                <ChevronRight size={14} className="ml-auto text-sky-400" />
+                <ChevronRight size={14} className="ml-auto text-amber-400" />
               )}
             </Link>
           );
@@ -75,7 +75,7 @@ export function DashboardSidebar() {
       <div className="p-4 border-t border-white/5">
         {user && (
           <div className="flex items-center gap-3 mb-3 px-2">
-            <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-sky-500 to-violet-500 flex items-center justify-center text-white font-bold text-sm shrink-0">
+            <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-amber-600 to-amber-800 flex items-center justify-center text-black font-bold text-sm shrink-0">
               {user.firstName[0]}{user.lastName[0]}
             </div>
             <div className="flex-1 min-w-0">
@@ -100,7 +100,7 @@ export function DashboardSidebar() {
   return (
     <>
       {/* Desktop sidebar */}
-      <aside className="hidden lg:flex flex-col w-64 shrink-0 border-r border-white/5 min-h-screen bg-[#050d1a]/80 backdrop-blur-xl">
+      <aside className="hidden lg:flex flex-col w-64 shrink-0 border-r border-white/5 min-h-screen bg-[#0a0a0a]/80 backdrop-blur-xl">
         {sidebarContent}
       </aside>
 
@@ -120,7 +120,7 @@ export function DashboardSidebar() {
               animate={{ x: 0 }}
               exit={{ x: -280 }}
               transition={{ type: 'spring', damping: 30, stiffness: 300 }}
-              className="lg:hidden fixed left-0 top-0 bottom-0 w-72 bg-[#050d1a] border-r border-white/5 z-50"
+              className="lg:hidden fixed left-0 top-0 bottom-0 w-72 bg-[#0a0a0a] border-r border-white/5 z-50"
             >
               {sidebarContent}
             </motion.aside>

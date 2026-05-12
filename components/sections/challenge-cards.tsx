@@ -13,8 +13,8 @@ export function ChallengeCardsSection() {
   return (
     <section className="py-24 relative overflow-hidden">
       <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-1/2 left-1/4 w-72 h-72 rounded-full bg-sky-600/5 blur-3xl" />
-        <div className="absolute top-1/2 right-1/4 w-72 h-72 rounded-full bg-violet-600/5 blur-3xl" />
+        <div className="absolute top-1/2 left-1/4 w-72 h-72 rounded-full bg-amber-600/5 blur-3xl" />
+        <div className="absolute top-1/2 right-1/4 w-72 h-72 rounded-full bg-amber-500/5 blur-3xl" />
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -37,13 +37,13 @@ export function ChallengeCardsSection() {
                 transition={{ duration: 0.3, type: 'spring', damping: 20 }}
                 className={`relative rounded-3xl p-6 h-full flex flex-col transition-all duration-300 ${
                   challenge.popular
-                    ? 'bg-gradient-to-b from-sky-600/20 to-violet-600/10 border border-sky-500/30 shadow-2xl shadow-sky-500/10'
-                    : 'glass border border-white/8 hover:border-sky-500/20'
+                    ? 'bg-gradient-to-b from-amber-600/20 to-amber-500/10 border border-amber-500/30 shadow-2xl shadow-amber-500/10'
+                    : 'glass border border-white/8 hover:border-amber-500/20'
                 }`}
               >
                 {challenge.popular && (
                   <div className="absolute -top-3 left-1/2 -translate-x-1/2">
-                    <Badge variant="info" className="shadow-lg shadow-sky-500/30">
+                    <Badge variant="info" className="shadow-lg shadow-amber-500/30">
                       <Star size={10} fill="currentColor" />
                       Most Popular
                     </Badge>
@@ -54,7 +54,7 @@ export function ChallengeCardsSection() {
                 <div className="mb-6">
                   <h3 className="text-lg font-bold text-white mb-1">{challenge.name}</h3>
                   <div className="flex items-baseline gap-1">
-                    <span className="text-4xl font-black gradient-text-blue">
+                    <span className="text-4xl font-black gradient-text">
                       ${challenge.price}
                     </span>
                     <span className="text-sm text-slate-400">one-time</span>
@@ -73,7 +73,7 @@ export function ChallengeCardsSection() {
                     { label: 'Split', value: `${challenge.profitSplit}%` },
                   ].map(({ label, value }) => (
                     <div key={label} className="glass rounded-xl p-3 text-center">
-                      <p className="text-sm font-bold text-sky-400">{value}</p>
+                      <p className="text-sm font-bold text-amber-400">{value}</p>
                       <p className="text-xs text-slate-500">{label}</p>
                     </div>
                   ))}
@@ -83,8 +83,8 @@ export function ChallengeCardsSection() {
                 <ul className="space-y-2.5 mb-8 flex-1">
                   {challenge.features.map((feature) => (
                     <li key={feature} className="flex items-start gap-2.5">
-                      <div className="w-4 h-4 rounded-full bg-sky-500/20 flex items-center justify-center shrink-0 mt-0.5">
-                        <Check size={10} className="text-sky-400" />
+                      <div className="w-4 h-4 rounded-full bg-amber-500/20 flex items-center justify-center shrink-0 mt-0.5">
+                        <Check size={10} className="text-amber-400" />
                       </div>
                       <span className="text-sm text-slate-300">{feature}</span>
                     </li>
@@ -109,7 +109,7 @@ export function ChallengeCardsSection() {
         <FadeIn className="text-center mt-10">
           <p className="text-sm text-slate-500">
             All challenges include a{' '}
-            <span className="text-sky-400 font-medium">14-day money-back guarantee</span>.
+            <span className="text-amber-400 font-medium">14-day money-back guarantee</span>.
             No hidden fees.
           </p>
         </FadeIn>

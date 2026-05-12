@@ -8,9 +8,9 @@ interface CardProps {
 }
 
 const glowClasses = {
-  blue: 'hover:shadow-sky-500/20 hover:border-sky-500/30',
-  purple: 'hover:shadow-violet-500/20 hover:border-violet-500/30',
-  cyan: 'hover:shadow-cyan-500/20 hover:border-cyan-500/30',
+  blue: 'hover:shadow-amber-500/20 hover:border-amber-500/30',
+  purple: 'hover:shadow-amber-600/20 hover:border-amber-600/30',
+  cyan: 'hover:shadow-amber-400/20 hover:border-amber-400/30',
   none: '',
 };
 

@@ -5,14 +5,14 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
-  --color-fp-navy: #050d1a;
-  --color-fp-blue: #0ea5e9;
-  --color-fp-cyan: #22d3ee;
-  --color-fp-purple: #8b5cf6;
+  --color-lf-bg: #0a0a0a;
+  --color-lf-gold: #C9A84C;
+  --color-lf-gold-light: #E8C97A;
+  --color-lf-gold-dark: #8B6914;
 }
 
 :root {
-  --background: #050d1a;
+  --background: #0a0a0a;
   --foreground: #e2e8f0;
 }
 
@@ -28,7 +28,7 @@ html {
 }
 
 body {
-  background-color: #050d1a;
+  background-color: #0a0a0a;
   color: #e2e8f0;
   font-family: var(--font-geist-sans), system-ui, -apple-system, sans-serif;
   overflow-x: hidden;
@@ -42,20 +42,20 @@ body {
 }
 
 ::-webkit-scrollbar-track {
-  background: #0a1628;
+  background: #141414;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #1e3a5f;
+  background: #3a2800;
   border-radius: 3px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #0ea5e9;
+  background: #C9A84C;
 }
 
 ::selection {
-  background: rgba(14, 165, 233, 0.3);
+  background: rgba(201, 168, 76, 0.3);
   color: #e2e8f0;
 }
 
@@ -75,28 +75,36 @@ body {
 }
 
 /* ─── Glow effects ──────────────────────────────────── */
+.glow-gold {
+  box-shadow: 0 0 40px rgba(201, 168, 76, 0.25);
+}
+
+.glow-bronze {
+  box-shadow: 0 0 40px rgba(139, 105, 20, 0.25);
+}
+
 .glow-blue {
-  box-shadow: 0 0 40px rgba(14, 165, 233, 0.25);
+  box-shadow: 0 0 40px rgba(201, 168, 76, 0.25);
 }
 
 .glow-purple {
-  box-shadow: 0 0 40px rgba(139, 92, 246, 0.25);
+  box-shadow: 0 0 40px rgba(201, 168, 76, 0.2);
 }
 
 .glow-cyan {
-  box-shadow: 0 0 40px rgba(34, 211, 238, 0.25);
+  box-shadow: 0 0 40px rgba(232, 201, 122, 0.2);
 }
 
 /* ─── Gradient text ─────────────────────────────────── */
 .gradient-text {
-  background: linear-gradient(135deg, #0ea5e9, #22d3ee, #8b5cf6);
+  background: linear-gradient(135deg, #F0C040, #C9A84C, #8B6914);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
 .gradient-text-blue {
-  background: linear-gradient(135deg, #38bdf8, #0ea5e9);
+  background: linear-gradient(135deg, #F0C040, #C9A84C);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -105,8 +113,8 @@ body {
 /* ─── Grid background ───────────────────────────────── */
 .grid-bg {
   background-image:
-    linear-gradient(rgba(14, 165, 233, 0.05) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(14, 165, 233, 0.05) 1px, transparent 1px);
+    linear-gradient(rgba(201, 168, 76, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(201, 168, 76, 0.05) 1px, transparent 1px);
   background-size: 60px 60px;
 }
 
@@ -127,11 +135,11 @@ body {
 
   0%,
   100% {
-    box-shadow: 0 0 20px rgba(14, 165, 233, 0.3);
+    box-shadow: 0 0 20px rgba(201, 168, 76, 0.3);
   }
 
   50% {
-    box-shadow: 0 0 50px rgba(14, 165, 233, 0.7);
+    box-shadow: 0 0 50px rgba(201, 168, 76, 0.7);
   }
 }
 

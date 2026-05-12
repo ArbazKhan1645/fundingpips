@@ -13,8 +13,8 @@ import { Button } from '@/components/ui/button';
 import { AnimatedCounter } from '@/components/animations/animated-counter';
 
 const commissionTiers = [
-  { name: 'Starter', referrals: '1-10', commission: '10%', color: 'from-sky-500/20 to-sky-500/5', border: 'border-sky-500/30' },
-  { name: 'Silver', referrals: '11-50', commission: '15%', color: 'from-violet-500/20 to-violet-500/5', border: 'border-violet-500/30' },
+  { name: 'Starter', referrals: '1-10', commission: '10%', color: 'from-amber-500/20 to-amber-500/5', border: 'border-amber-500/30' },
+  { name: 'Silver', referrals: '11-50', commission: '15%', color: 'from-amber-600/20 to-amber-600/5', border: 'border-amber-600/30' },
   { name: 'Gold', referrals: '51-200', commission: '20%', color: 'from-amber-500/20 to-amber-500/5', border: 'border-amber-500/30' },
   { name: 'Elite', referrals: '200+', commission: '25%', color: 'from-emerald-500/20 to-emerald-500/5', border: 'border-emerald-500/30' },
 ];
@@ -43,15 +43,15 @@ export default function AffiliatePage() {
   };
 
   return (
-    <main className="min-h-screen bg-[#050d1a]">
+    <main className="min-h-screen bg-[#0a0a0a]">
       <Navbar />
 
       {/* Hero */}
       <section style={{ paddingTop: '100px' }} className="pb-20 relative overflow-hidden">
         <div className="absolute inset-0">
           <div className="grid-bg absolute inset-0 opacity-25" />
-          <div className="absolute top-1/3 left-1/4 w-96 h-96 rounded-full bg-violet-600/10 blur-3xl animate-float" />
-          <div className="absolute top-1/3 right-1/4 w-96 h-96 rounded-full bg-sky-600/10 blur-3xl animate-float-delayed" />
+          <div className="absolute top-1/3 left-1/4 w-96 h-96 rounded-full bg-amber-600/10 blur-3xl animate-float" />
+          <div className="absolute top-1/3 right-1/4 w-96 h-96 rounded-full bg-amber-500/10 blur-3xl animate-float-delayed" />
         </div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-12 text-center relative">
           <FadeIn>
@@ -86,8 +86,8 @@ export default function AffiliatePage() {
           <StaggerContainer className="grid grid-cols-1 sm:grid-cols-3 gap-6">
             {affiliateStats.map(({ label, value, icon: Icon }) => (
               <StaggerItem key={label}>
-                <div className="glass rounded-3xl p-8 text-center border border-white/8 hover:border-violet-500/20 transition-all">
-                  <div className="w-12 h-12 rounded-2xl bg-violet-500/10 border border-violet-500/20 flex items-center justify-center mx-auto mb-4 text-violet-400">
+                <div className="glass rounded-3xl p-8 text-center border border-white/8 hover:border-amber-500/20 transition-all">
+                  <div className="w-12 h-12 rounded-2xl bg-amber-500/10 border border-amber-500/20 flex items-center justify-center mx-auto mb-4 text-amber-400">
                     <Icon size={22} />
                   </div>
                   <p className="text-4xl font-black gradient-text mb-1">
@@ -145,7 +145,7 @@ export default function AffiliatePage() {
           <StaggerContainer className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {howItWorks.map((step) => (
               <StaggerItem key={step.step}>
-                <div className="glass rounded-2xl p-6 border border-white/8 hover:border-sky-500/20 transition-all relative">
+                <div className="glass rounded-2xl p-6 border border-white/8 hover:border-amber-500/20 transition-all relative">
                   <div className="text-6xl font-black text-white/5 absolute top-4 right-4">{step.step}</div>
                   <div className="relative z-10">
                     <div className="text-2xl font-black gradient-text-blue mb-3">{step.step}</div>
@@ -178,7 +178,7 @@ export default function AffiliatePage() {
                   { label: 'Total Earned', value: '$2,180' },
                 ].map(({ label, value }) => (
                   <div key={label} className="bg-white/3 rounded-2xl p-4 text-center">
-                    <p className="text-xl font-black text-sky-400">{value}</p>
+                    <p className="text-xl font-black text-amber-400">{value}</p>
                     <p className="text-xs text-slate-400 mt-1">{label}</p>
                   </div>
                 ))}
@@ -192,7 +192,7 @@ export default function AffiliatePage() {
                   <p className="text-sm text-slate-300 flex-1 truncate">{mockLink}</p>
                   <button
                     onClick={handleCopy}
-                    className="flex items-center gap-1.5 text-xs font-medium text-sky-400 hover:text-sky-300 transition-colors shrink-0"
+                    className="flex items-center gap-1.5 text-xs font-medium text-amber-400 hover:text-amber-300 transition-colors shrink-0"
                   >
                     {copied ? <Check size={14} /> : <Copy size={14} />}
                     {copied ? 'Copied!' : 'Copy'}

@@ -26,7 +26,7 @@ export default function ObjectivesPage() {
                   <div className={`w-10 h-10 rounded-xl flex items-center justify-center text-white font-black text-sm ${
                     account.phase === 'funded'
                       ? 'bg-gradient-to-br from-emerald-500 to-teal-500'
-                      : 'bg-gradient-to-br from-sky-500 to-violet-500'
+                      : 'bg-gradient-to-br from-amber-600 to-amber-800'
                   }`}>
                     {account.phase === 'funded' ? 'FA' : account.phase === 'phase1' ? 'P1' : 'P2'}
                   </div>
@@ -95,7 +95,7 @@ export default function ObjectivesPage() {
                         className={`h-full rounded-full ${
                           obj.isLoss
                             ? 'bg-gradient-to-r from-orange-500 to-red-500'
-                            : 'bg-gradient-to-r from-sky-500 to-emerald-400'
+                            : 'bg-gradient-to-r from-amber-600 to-emerald-400'
                         }`}
                       />
                     </div>

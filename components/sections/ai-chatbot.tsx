@@ -112,13 +112,13 @@ export function AIChatbot() {
             }}
           >
             {/* Header */}
-            <div className="flex items-center justify-between px-4 py-3 bg-gradient-to-r from-[#0c1e35] to-[#0f1e3a] border-b border-white/8 shrink-0">
+            <div className="flex items-center justify-between px-4 py-3 bg-gradient-to-r from-[#1a1000] to-[#1f1500] border-b border-white/8 shrink-0">
               <div className="flex items-center gap-3">
                 <div className="relative">
-                  <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-sky-500 to-cyan-400 flex items-center justify-center shadow-lg shadow-sky-500/30">
-                    <Bot size={17} className="text-white" />
+                  <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-amber-600 to-amber-400 flex items-center justify-center shadow-lg shadow-amber-500/30">
+                    <Bot size={17} className="text-black" />
                   </div>
-                  <span className="absolute -bottom-0.5 -right-0.5 w-3 h-3 bg-emerald-400 border-2 border-[#0c1e35] rounded-full" />
+                  <span className="absolute -bottom-0.5 -right-0.5 w-3 h-3 bg-emerald-400 border-2 border-[#1a1000] rounded-full" />
                 </div>
                 <div>
                   <p className="text-sm font-bold text-white leading-none">Lordfunded AI</p>
@@ -134,7 +134,7 @@ export function AIChatbot() {
             </div>
 
             {/* Messages — flex-1 so it expands to fill available height */}
-            <div className="flex-1 overflow-y-auto p-4 space-y-3 bg-[#07111f] hide-scrollbar min-h-0">
+            <div className="flex-1 overflow-y-auto p-4 space-y-3 bg-[#0f0b00] hide-scrollbar min-h-0">
               {messages.map((msg) => (
                 <motion.div
                   key={msg.id}
@@ -144,15 +144,15 @@ export function AIChatbot() {
                   className={cn('flex gap-2', msg.role === 'user' ? 'justify-end' : 'justify-start')}
                 >
                   {msg.role === 'assistant' && (
-                    <div className="w-6 h-6 rounded-full bg-gradient-to-br from-sky-500 to-cyan-400 flex items-center justify-center shrink-0 mt-auto">
-                      <Bot size={12} className="text-white" />
+                    <div className="w-6 h-6 rounded-full bg-gradient-to-br from-amber-600 to-amber-400 flex items-center justify-center shrink-0 mt-auto">
+                      <Bot size={12} className="text-black" />
                     </div>
                   )}
                   <div
                     className={cn(
                       'max-w-[82%] px-3.5 py-2.5 rounded-2xl text-sm leading-relaxed',
                       msg.role === 'user'
-                        ? 'bg-sky-500 text-white rounded-br-sm'
+                        ? 'bg-amber-500 text-black rounded-br-sm'
                         : 'bg-white/6 border border-white/8 text-slate-200 rounded-bl-sm'
                     )}
                   >
@@ -169,14 +169,14 @@ export function AIChatbot() {
                     exit={{ opacity: 0 }}
                     className="flex gap-2"
                   >
-                    <div className="w-6 h-6 rounded-full bg-gradient-to-br from-sky-500 to-cyan-400 flex items-center justify-center shrink-0">
-                      <Bot size={12} className="text-white" />
+                    <div className="w-6 h-6 rounded-full bg-gradient-to-br from-amber-600 to-amber-400 flex items-center justify-center shrink-0">
+                      <Bot size={12} className="text-black" />
                     </div>
                     <div className="bg-white/6 border border-white/8 rounded-2xl rounded-bl-sm px-4 py-3 flex items-center gap-1">
                       {[0, 1, 2].map((i) => (
                         <motion.span
                           key={i}
-                          className="w-1.5 h-1.5 rounded-full bg-sky-400 inline-block"
+                          className="w-1.5 h-1.5 rounded-full bg-amber-400 inline-block"
                           animate={{ y: [0, -5, 0] }}
                           transition={{ duration: 0.5, repeat: Infinity, delay: i * 0.12 }}
                         />
@@ -190,12 +190,12 @@ export function AIChatbot() {
 
             {/* Quick replies — only on first message */}
             {messages.length === 1 && (
-              <div className="px-4 pb-2 pt-1 bg-[#07111f] flex flex-wrap gap-1.5 shrink-0">
+              <div className="px-4 pb-2 pt-1 bg-[#0f0b00] flex flex-wrap gap-1.5 shrink-0">
                 {SUGGESTIONS.map((s) => (
                   <button
                     key={s}
                     onClick={() => handleSend(s)}
-                    className="text-xs px-3 py-1.5 rounded-full border border-sky-500/30 text-sky-400 hover:bg-sky-500/10 transition-all whitespace-nowrap"
+                    className="text-xs px-3 py-1.5 rounded-full border border-amber-500/30 text-amber-400 hover:bg-amber-500/10 transition-all whitespace-nowrap"
                   >
                     {s}
                   </button>
@@ -204,8 +204,8 @@ export function AIChatbot() {
             )}
 
             {/* Input */}
-            <div className="px-3 pb-3 pt-2 bg-[#07111f] border-t border-white/6 shrink-0">
-              <div className="flex items-center gap-2 bg-white/5 border border-white/10 rounded-xl px-3 py-2 focus-within:border-sky-500/40 transition-all">
+            <div className="px-3 pb-3 pt-2 bg-[#0f0b00] border-t border-white/6 shrink-0">
+              <div className="flex items-center gap-2 bg-white/5 border border-white/10 rounded-xl px-3 py-2 focus-within:border-amber-500/40 transition-all">
                 <input
                   ref={inputRef}
                   type="text"
@@ -218,7 +218,7 @@ export function AIChatbot() {
                 <button
                   onClick={() => handleSend()}
                   disabled={!inputValue.trim() || isTyping}
-                  className="w-7 h-7 rounded-lg bg-sky-500 flex items-center justify-center text-white hover:bg-sky-400 transition-all disabled:opacity-40 disabled:cursor-not-allowed shrink-0"
+                  className="w-7 h-7 rounded-lg bg-amber-500 flex items-center justify-center text-black hover:bg-amber-400 transition-all disabled:opacity-40 disabled:cursor-not-allowed shrink-0"
                 >
                   <Send size={13} />
                 </button>
@@ -235,7 +235,7 @@ export function AIChatbot() {
         whileHover={{ scale: 1.08 }}
         whileTap={{ scale: 0.94 }}
         className={cn(
-          "fixed bottom-4 right-4 z-50 rounded-2xl bg-gradient-to-br from-sky-500 to-cyan-400 flex items-center justify-center shadow-2xl shadow-sky-500/40 text-white",
+          "fixed bottom-4 right-4 z-50 rounded-2xl bg-gradient-to-br from-amber-600 to-amber-400 flex items-center justify-center shadow-2xl shadow-amber-500/40 text-black",
           // Hide button on small screens when chat is open
           isButtonHidden ? "hidden" : ""
         )}
@@ -256,7 +256,7 @@ export function AIChatbot() {
         {!isOpen && (
           <span className="absolute -top-1 -right-1 flex h-4 w-4">
             <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-60" />
-            <span className="relative inline-flex rounded-full h-4 w-4 bg-emerald-400 border-2 border-[#050d1a]" />
+            <span className="relative inline-flex rounded-full h-4 w-4 bg-emerald-400 border-2 border-[#0a0a0a]" />
           </span>
         )}
       </motion.button>

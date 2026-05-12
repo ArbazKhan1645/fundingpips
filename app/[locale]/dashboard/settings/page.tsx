@@ -27,12 +27,12 @@ export default function SettingsPage() {
       <FadeIn>
         <div className="glass rounded-2xl p-6 border border-white/8">
           <div className="flex items-center gap-3 mb-6">
-            <User size={18} className="text-sky-400" />
+            <User size={18} className="text-amber-400" />
             <h3 className="text-base font-bold text-white">Profile Information</h3>
           </div>
 
           <div className="flex items-center gap-4 mb-6">
-            <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-sky-500 to-violet-500 flex items-center justify-center text-white font-black text-xl">
+            <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-amber-600 to-amber-800 flex items-center justify-center text-black font-black text-xl">
               {user?.firstName?.[0]}{user?.lastName?.[0]}
             </div>
             <div>
@@ -60,7 +60,7 @@ export default function SettingsPage() {
       <FadeIn>
         <div className="glass rounded-2xl p-6 border border-white/8">
           <div className="flex items-center gap-3 mb-6">
-            <Bell size={18} className="text-sky-400" />
+            <Bell size={18} className="text-amber-400" />
             <h3 className="text-base font-bold text-white">Notifications</h3>
           </div>
           <div className="space-y-4">
@@ -76,7 +76,7 @@ export default function SettingsPage() {
                   <p className="text-xs text-slate-400 mt-0.5">{item.description}</p>
                 </div>
                 <div
-                  className={`w-11 h-6 rounded-full cursor-pointer transition-all duration-300 relative ${i < 3 ? 'bg-sky-500' : 'bg-white/10'}`}
+                  className={`w-11 h-6 rounded-full cursor-pointer transition-all duration-300 relative ${i < 3 ? 'bg-amber-500' : 'bg-white/10'}`}
                 >
                   <div className={`absolute top-1 w-4 h-4 rounded-full bg-white shadow-sm transition-all duration-300 ${i < 3 ? 'left-6' : 'left-1'}`} />
                 </div>
@@ -90,7 +90,7 @@ export default function SettingsPage() {
       <FadeIn>
         <div className="glass rounded-2xl p-6 border border-white/8">
           <div className="flex items-center gap-3 mb-6">
-            <Shield size={18} className="text-sky-400" />
+            <Shield size={18} className="text-amber-400" />
             <h3 className="text-base font-bold text-white">Security</h3>
           </div>
           <div className="space-y-4">

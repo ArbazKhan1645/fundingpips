@@ -18,7 +18,7 @@ export function TestimonialsSection() {
   return (
     <section className="py-24 relative overflow-hidden">
       <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] rounded-full bg-violet-600/5 blur-3xl" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] rounded-full bg-amber-600/5 blur-3xl" />
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -42,7 +42,7 @@ export function TestimonialsSection() {
               className="glass rounded-3xl p-8 md:p-12 relative overflow-hidden"
             >
               {/* Quote icon */}
-              <div className="absolute top-6 right-8 text-sky-500/20">
+              <div className="absolute top-6 right-8 text-amber-500/20">
                 <Quote size={80} />
               </div>
 
@@ -59,7 +59,7 @@ export function TestimonialsSection() {
 
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 rounded-full bg-gradient-to-br from-sky-500 to-violet-500 flex items-center justify-center text-white font-bold text-lg">
+                  <div className="w-12 h-12 rounded-full bg-gradient-to-br from-amber-500 to-amber-700 flex items-center justify-center text-black font-bold text-lg">
                     {testimonial.name[0]}
                   </div>
                   <div>
@@ -79,7 +79,7 @@ export function TestimonialsSection() {
           <div className="flex items-center justify-center gap-4 mt-8">
             <button
               onClick={prev}
-              className="w-10 h-10 rounded-xl glass border border-white/10 flex items-center justify-center text-slate-400 hover:text-white hover:border-sky-500/30 transition-all"
+              className="w-10 h-10 rounded-xl glass border border-white/10 flex items-center justify-center text-slate-400 hover:text-white hover:border-amber-500/30 transition-all"
             >
               <ChevronLeft size={18} />
             </button>
@@ -91,7 +91,7 @@ export function TestimonialsSection() {
                   onClick={() => setCurrent(i)}
                   className={`transition-all duration-300 rounded-full ${
                     i === current
-                      ? 'w-6 h-2 bg-sky-400'
+                      ? 'w-6 h-2 bg-amber-400'
                       : 'w-2 h-2 bg-white/20 hover:bg-white/40'
                   }`}
                 />
@@ -100,7 +100,7 @@ export function TestimonialsSection() {
 
             <button
               onClick={next}
-              className="w-10 h-10 rounded-xl glass border border-white/10 flex items-center justify-center text-slate-400 hover:text-white hover:border-sky-500/30 transition-all"
+              className="w-10 h-10 rounded-xl glass border border-white/10 flex items-center justify-center text-slate-400 hover:text-white hover:border-amber-500/30 transition-all"
             >
               <ChevronRight size={18} />
             </button>

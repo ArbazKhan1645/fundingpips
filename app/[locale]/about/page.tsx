@@ -26,24 +26,24 @@ const values = [
 ];
 
 const team = [
-  { name: 'Ahmad Al-Rashid', role: 'CEO & Co-Founder', bg: 'from-sky-500 to-blue-600' },
-  { name: 'Sarah Mitchell', role: 'CTO & Co-Founder', bg: 'from-violet-500 to-purple-600' },
+  { name: 'Ahmad Al-Rashid', role: 'CEO & Co-Founder', bg: 'from-amber-600 to-amber-800' },
+  { name: 'Sarah Mitchell', role: 'CTO & Co-Founder', bg: 'from-amber-500 to-amber-700' },
   { name: 'Omar Hassan', role: 'Head of Trading', bg: 'from-emerald-500 to-teal-600' },
   { name: 'Lisa Chen', role: 'Head of Operations', bg: 'from-pink-500 to-rose-600' },
   { name: 'James Rodriguez', role: 'Head of Growth', bg: 'from-amber-500 to-orange-600' },
-  { name: 'Priya Sharma', role: 'Head of Support', bg: 'from-cyan-500 to-sky-600' },
+  { name: 'Priya Sharma', role: 'Head of Support', bg: 'from-yellow-500 to-amber-600' },
 ];
 
 export default function AboutPage() {
   return (
-    <main className="min-h-screen bg-[#050d1a]">
+    <main className="min-h-screen bg-[#0a0a0a]">
       <Navbar />
 
       {/* Hero */}
       <section style={{ paddingTop: '100px' }} className="pb-20 relative overflow-hidden">
         <div className="absolute inset-0">
           <div className="grid-bg absolute inset-0 opacity-20" />
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] rounded-full bg-sky-600/8 blur-3xl" />
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] rounded-full bg-amber-600/8 blur-3xl" />
         </div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-12 text-center relative">
           <FadeIn>
@@ -84,7 +84,7 @@ export default function AboutPage() {
                   <motion.div
                     key={stat}
                     whileHover={{ scale: 1.03 }}
-                    className="glass rounded-2xl p-6 text-center border border-white/8 hover:border-sky-500/30 transition-all"
+                    className="glass rounded-2xl p-6 text-center border border-white/8 hover:border-amber-500/30 transition-all"
                   >
                     <p className="text-2xl font-black gradient-text">{stat.split(' ')[0]}</p>
                     <p className="text-sm text-slate-400 mt-1">{stat.split(' ').slice(1).join(' ')}</p>
@@ -107,9 +107,9 @@ export default function AboutPage() {
               <StaggerItem key={value.title}>
                 <motion.div
                   whileHover={{ y: -4 }}
-                  className="glass rounded-2xl p-6 border border-white/8 hover:border-sky-500/20 transition-all text-center"
+                  className="glass rounded-2xl p-6 border border-white/8 hover:border-amber-500/20 transition-all text-center"
                 >
-                  <div className="w-12 h-12 rounded-2xl bg-sky-500/10 border border-sky-500/20 flex items-center justify-center mx-auto mb-4 text-sky-400">
+                  <div className="w-12 h-12 rounded-2xl bg-amber-500/10 border border-amber-500/20 flex items-center justify-center mx-auto mb-4 text-amber-400">
                     <value.icon size={22} />
                   </div>
                   <h3 className="text-base font-bold text-white mb-2">{value.title}</h3>
@@ -129,18 +129,18 @@ export default function AboutPage() {
           </FadeIn>
           <div className="relative">
             {/* Line */}
-            <div className="absolute left-[28px] sm:left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-sky-500/50 via-violet-500/50 to-transparent" />
+            <div className="absolute left-[28px] sm:left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-amber-500/50 via-amber-600/50 to-transparent" />
 
             <div className="space-y-12">
               {timeline.map((item, i) => (
                 <FadeIn key={item.year} delay={i * 0.1}>
                   <div className={`relative flex items-start gap-6 ${i % 2 === 0 ? 'sm:flex-row' : 'sm:flex-row-reverse'}`}>
                     {/* Dot */}
-                    <div className="absolute left-[20px] sm:left-1/2 sm:-translate-x-1/2 w-4 h-4 rounded-full bg-sky-500 border-2 border-[#050d1a] shadow-lg shadow-sky-500/50 z-10 mt-1" />
+                    <div className="absolute left-[20px] sm:left-1/2 sm:-translate-x-1/2 w-4 h-4 rounded-full bg-amber-500 border-2 border-[#0a0a0a] shadow-lg shadow-amber-500/50 z-10 mt-1" />
 
                     {/* Content */}
-                    <div className={`ml-14 sm:ml-0 sm:w-[calc(50%-2rem)] glass rounded-2xl p-5 border border-white/8 hover:border-sky-500/20 transition-all ${i % 2 === 0 ? 'sm:text-right' : 'sm:text-left'}`}>
-                      <span className="text-xs font-bold text-sky-400 uppercase tracking-wider">{item.year}</span>
+                    <div className={`ml-14 sm:ml-0 sm:w-[calc(50%-2rem)] glass rounded-2xl p-5 border border-white/8 hover:border-amber-500/20 transition-all ${i % 2 === 0 ? 'sm:text-right' : 'sm:text-left'}`}>
+                      <span className="text-xs font-bold text-amber-400 uppercase tracking-wider">{item.year}</span>
                       <h3 className="text-base font-bold text-white mt-1 mb-2">{item.title}</h3>
                       <p className="text-sm text-slate-400 leading-relaxed">{item.description}</p>
                     </div>
@@ -164,7 +164,7 @@ export default function AboutPage() {
               <StaggerItem key={member.name}>
                 <motion.div
                   whileHover={{ y: -4 }}
-                  className="glass rounded-2xl p-4 text-center border border-white/8 hover:border-sky-500/20 transition-all"
+                  className="glass rounded-2xl p-4 text-center border border-white/8 hover:border-amber-500/20 transition-all"
                 >
                   <div className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${member.bg} flex items-center justify-center mx-auto mb-3 text-white font-black text-xl shadow-lg`}>
                     {member.name.split(' ').map(n => n[0]).join('')}

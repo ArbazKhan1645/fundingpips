@@ -18,8 +18,8 @@ export function StatisticsSection() {
     <section className="py-24 relative overflow-hidden">
       {/* Background */}
       <div className="absolute inset-0">
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-sky-950/20 to-transparent" />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] rounded-full bg-sky-600/5 blur-3xl" />
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-amber-950/20 to-transparent" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] rounded-full bg-amber-600/5 blur-3xl" />
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
@@ -38,7 +38,7 @@ export function StatisticsSection() {
         <StaggerContainer className="grid grid-cols-2 md:grid-cols-3 gap-6">
           {stats.map((stat, i) => (
             <StaggerItem key={stat.label}>
-              <div className="glass rounded-3xl p-8 text-center space-y-2 border border-white/5 hover:border-sky-500/20 transition-all duration-300 group hover:-translate-y-1">
+              <div className="glass rounded-3xl p-8 text-center space-y-2 border border-white/5 hover:border-amber-500/20 transition-all duration-300 group hover:-translate-y-1">
                 <div className="text-4xl sm:text-5xl font-black gradient-text group-hover:scale-110 transition-transform duration-300">
                   <AnimatedCounter value={stat.value} />
                 </div>

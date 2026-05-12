@@ -31,15 +31,15 @@ export default function TradingObjectivesPage() {
   const [selectedSize, setSelectedSize] = useState(mockChallenges[1]);
 
   return (
-    <main className="min-h-screen bg-[#050d1a]">
+    <main className="min-h-screen bg-[#0a0a0a]">
       <Navbar />
 
       {/* Hero */}
       <section style={{ paddingTop: '100px' }} className="pb-16 relative overflow-hidden">
         <div className="absolute inset-0 pointer-events-none">
           <div className="grid-bg absolute inset-0 opacity-25" />
-          <div className="absolute top-1/2 left-1/4 w-96 h-96 rounded-full bg-sky-600/8 blur-3xl" />
-          <div className="absolute top-1/2 right-1/4 w-96 h-96 rounded-full bg-violet-600/8 blur-3xl" />
+          <div className="absolute top-1/2 left-1/4 w-96 h-96 rounded-full bg-amber-600/8 blur-3xl" />
+          <div className="absolute top-1/2 right-1/4 w-96 h-96 rounded-full bg-amber-500/8 blur-3xl" />
         </div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-12 text-center relative">
           <FadeIn>
@@ -68,8 +68,8 @@ export default function TradingObjectivesPage() {
                   onClick={() => setSelectedSize(c)}
                   className={`px-6 py-3 rounded-2xl text-sm font-bold transition-all duration-200 border ${
                     selectedSize.id === c.id
-                      ? 'bg-sky-500 text-white border-sky-500 shadow-lg shadow-sky-500/30'
-                      : 'glass border-white/10 text-slate-300 hover:border-sky-500/40 hover:text-sky-400'
+                      ? 'bg-amber-500 text-black border-amber-500 shadow-lg shadow-amber-500/30'
+                      : 'glass border-white/10 text-slate-300 hover:border-amber-500/40 hover:text-amber-400'
                   }`}
                 >
                   {formatCurrency(c.accountSize)}
@@ -87,7 +87,7 @@ export default function TradingObjectivesPage() {
             {[
               {
                 title: 'Phase 1', subtitle: 'Evaluation',
-                borderColor: 'border-sky-500/30', gradientFrom: 'from-sky-600/15',
+                borderColor: 'border-amber-500/30', gradientFrom: 'from-amber-600/15',
                 items: [
                   { label: 'Account Size', value: formatCurrency(selectedSize.accountSize) },
                   { label: 'Profit Target', value: `${selectedSize.phase1ProfitTarget}%` },
@@ -99,7 +99,7 @@ export default function TradingObjectivesPage() {
               },
               {
                 title: 'Phase 2', subtitle: 'Verification',
-                borderColor: 'border-violet-500/30', gradientFrom: 'from-violet-600/15',
+                borderColor: 'border-amber-600/30', gradientFrom: 'from-amber-700/15',
                 items: [
                   { label: 'Account Size', value: formatCurrency(selectedSize.accountSize) },
                   { label: 'Profit Target', value: `${selectedSize.phase2ProfitTarget}%` },
@@ -166,20 +166,20 @@ export default function TradingObjectivesPage() {
                   whileHover={{ y: -4 }}
                   className={`rounded-2xl p-5 border transition-all ${
                     challenge.popular
-                      ? 'bg-gradient-to-b from-sky-600/20 to-transparent border-sky-500/40'
-                      : 'glass border-white/8 hover:border-sky-500/20'
+                      ? 'bg-gradient-to-b from-amber-600/20 to-transparent border-amber-500/40'
+                      : 'glass border-white/8 hover:border-amber-500/20'
                   }`}
                 >
                   {challenge.popular && (
                     <Badge variant="info" className="mb-3 text-xs">Most Popular</Badge>
                   )}
                   <h3 className="font-bold text-white mb-0.5">{challenge.name}</h3>
-                  <p className="text-3xl font-black gradient-text-blue mb-1">${challenge.price}</p>
+                  <p className="text-3xl font-black gradient-text mb-1">${challenge.price}</p>
                   <p className="text-sm text-slate-400 mb-4">{formatCurrency(challenge.accountSize)} Account</p>
                   <ul className="space-y-2 mb-5">
                     {challenge.features.slice(0, 5).map((f) => (
                       <li key={f} className="flex items-center gap-2 text-sm text-slate-300">
-                        <Check size={12} className="text-sky-400 shrink-0" />
+                        <Check size={12} className="text-amber-400 shrink-0" />
                         {f}
                       </li>
                     ))}
@@ -211,8 +211,8 @@ export default function TradingObjectivesPage() {
                   <thead>
                     <tr className="border-b border-white/8 bg-white/3">
                       <th className="text-left px-6 py-4 text-sm font-semibold text-slate-400 min-w-48">Rule</th>
-                      <th className="text-center px-6 py-4 text-sm font-semibold text-sky-400 min-w-32">Phase 1</th>
-                      <th className="text-center px-6 py-4 text-sm font-semibold text-violet-400 min-w-32">Phase 2</th>
+                      <th className="text-center px-6 py-4 text-sm font-semibold text-amber-400 min-w-32">Phase 1</th>
+                      <th className="text-center px-6 py-4 text-sm font-semibold text-amber-500 min-w-32">Phase 2</th>
                       <th className="text-center px-6 py-4 text-sm font-semibold text-emerald-400 min-w-32">Funded</th>
                     </tr>
                   </thead>

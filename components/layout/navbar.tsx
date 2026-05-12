@@ -52,18 +52,18 @@ export function Navbar() {
           scrolled ? 'h-0 opacity-0' : 'h-9 opacity-100'
         )}
       >
-        <div className="h-9 flex items-center bg-gradient-to-r from-sky-600/20 via-violet-600/20 to-cyan-600/20 border-b border-white/5 overflow-hidden">
+        <div className="h-9 flex items-center bg-gradient-to-r from-amber-600/20 via-amber-500/20 to-yellow-600/20 border-b border-white/5 overflow-hidden">
           <div className="animate-marquee flex whitespace-nowrap">
             {[0, 1, 2, 3].map((i) => (
               <span key={i} className="flex items-center gap-8 px-8 text-xs text-slate-300">
                 <span>🎉 Over $2.4M+ paid out to funded traders</span>
-                <span className="text-sky-400">★</span>
+                <span className="text-amber-400">★</span>
                 <span>⚡ Instant account activation after payment</span>
-                <span className="text-sky-400">★</span>
+                <span className="text-amber-400">★</span>
                 <span>🏆 90% profit split — industry leading</span>
-                <span className="text-sky-400">★</span>
+                <span className="text-amber-400">★</span>
                 <span>🌍 150+ countries supported</span>
-                <span className="text-sky-400">★</span>
+                <span className="text-amber-400">★</span>
               </span>
             ))}
           </div>
@@ -75,15 +75,15 @@ export function Navbar() {
         className={cn(
           'h-16 transition-all duration-300',
           scrolled
-            ? 'bg-[#050d1a]/95 backdrop-blur-xl border-b border-white/8 shadow-2xl shadow-black/40'
-            : 'bg-[#050d1a]/70 backdrop-blur-md border-b border-white/5'
+            ? 'bg-[#0a0a0a]/95 backdrop-blur-xl border-b border-white/8 shadow-2xl shadow-black/40'
+            : 'bg-[#0a0a0a]/70 backdrop-blur-md border-b border-white/5'
         )}
       >
         <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex items-center justify-between gap-4">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2.5 shrink-0">
-            <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-sky-500 to-cyan-400 flex items-center justify-center shadow-lg shadow-sky-500/30 shrink-0">
-              <span className="text-white font-black text-sm">LF</span>
+            <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-amber-600 to-amber-400 flex items-center justify-center shadow-lg shadow-amber-500/30 shrink-0">
+              <span className="text-black font-black text-sm">LF</span>
             </div>
             <span className="font-bold text-white text-lg tracking-tight">
               Lord<span className="gradient-text-blue">funded</span>
@@ -99,7 +99,7 @@ export function Navbar() {
                 className={cn(
                   'px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 whitespace-nowrap',
                   pathname === link.href || pathname.endsWith(link.href)
-                    ? 'text-sky-400 bg-sky-500/10'
+                    ? 'text-amber-400 bg-amber-500/10'
                     : 'text-slate-300 hover:text-white hover:bg-white/5'
                 )}
               >
@@ -139,7 +139,7 @@ export function Navbar() {
                         className={cn(
                           'w-full flex items-center gap-2.5 px-3 py-2 rounded-lg text-sm transition-all',
                           currentLang.code === lang.code
-                            ? 'bg-sky-500/20 text-sky-400'
+                            ? 'bg-amber-500/20 text-amber-400'
                             : 'text-slate-300 hover:bg-white/5 hover:text-white'
                         )}
                       >
@@ -181,7 +181,7 @@ export function Navbar() {
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.2 }}
-            className="lg:hidden bg-[#0a1628]/98 backdrop-blur-xl border-b border-white/8 overflow-hidden"
+            className="lg:hidden bg-[#0a0a0a]/98 backdrop-blur-xl border-b border-white/8 overflow-hidden"
           >
             <div className="max-w-7xl mx-auto px-4 py-4 flex flex-col gap-1">
               {navLinks.map((link) => (
@@ -192,7 +192,7 @@ export function Navbar() {
                   className={cn(
                     'px-4 py-3 rounded-xl text-sm font-medium transition-all',
                     pathname === link.href || pathname.endsWith(link.href)
-                      ? 'bg-sky-500/15 text-sky-400'
+                      ? 'bg-amber-500/15 text-amber-400'
                       : 'text-slate-300 hover:text-white hover:bg-white/5'
                   )}
                 >

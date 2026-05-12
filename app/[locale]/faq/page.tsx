@@ -26,14 +26,14 @@ export default function FAQPage() {
   });
 
   return (
-    <main className="min-h-screen bg-[#050d1a]">
+    <main className="min-h-screen bg-[#0a0a0a]">
       <Navbar />
 
       {/* Hero */}
       <section style={{ paddingTop: '100px' }} className="pb-16 relative overflow-hidden">
         <div className="absolute inset-0">
           <div className="grid-bg absolute inset-0 opacity-20" />
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[300px] rounded-full bg-sky-600/8 blur-3xl" />
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[300px] rounded-full bg-amber-600/8 blur-3xl" />
         </div>
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative">
           <FadeIn className="pt-10">
@@ -54,7 +54,7 @@ export default function FAQPage() {
                 placeholder="Search questions..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-full h-14 pl-12 pr-4 glass rounded-2xl border border-white/10 text-white placeholder:text-slate-500 focus:outline-none focus:border-sky-500/50 text-sm transition-all"
+                className="w-full h-14 pl-12 pr-4 glass rounded-2xl border border-white/10 text-white placeholder:text-slate-500 focus:outline-none focus:border-amber-500/50 text-sm transition-all"
               />
             </div>
           </FadeIn>
@@ -72,8 +72,8 @@ export default function FAQPage() {
                   onClick={() => setActiveCategory(cat)}
                   className={`px-5 py-2 rounded-xl text-sm font-medium transition-all duration-200 ${
                     activeCategory === cat
-                      ? 'bg-sky-500 text-white shadow-lg shadow-sky-500/25'
-                      : 'glass border border-white/10 text-slate-300 hover:text-white hover:border-sky-500/30'
+                      ? 'bg-amber-500 text-black shadow-lg shadow-amber-500/25'
+                      : 'glass border border-white/10 text-slate-300 hover:text-white hover:border-amber-500/30'
                   }`}
                 >
                   {cat}
@@ -97,7 +97,7 @@ export default function FAQPage() {
               {filtered.map((item) => (
                 <StaggerItem key={item.id}>
                   <motion.div
-                    className="glass rounded-2xl border border-white/8 overflow-hidden hover:border-sky-500/20 transition-all"
+                    className="glass rounded-2xl border border-white/8 overflow-hidden hover:border-amber-500/20 transition-all"
                     whileHover={{ scale: 1.002 }}
                   >
                     <button
@@ -151,10 +151,10 @@ export default function FAQPage() {
                 Our support team is available 24/5. Use the chat button below or join our Discord community.
               </p>
               <div className="flex flex-col sm:flex-row gap-3 justify-center">
-                <a href="#" className="px-6 py-3 glass rounded-xl border border-white/10 text-sm text-slate-300 hover:text-white hover:border-sky-500/30 transition-all">
+                <a href="#" className="px-6 py-3 glass rounded-xl border border-white/10 text-sm text-slate-300 hover:text-white hover:border-amber-500/30 transition-all">
                   Join Discord
                 </a>
-                <a href="mailto:support@lordfunded.com" className="px-6 py-3 bg-sky-500 rounded-xl text-sm text-white font-medium hover:bg-sky-400 transition-all">
+                <a href="mailto:support@lordfunded.com" className="px-6 py-3 bg-amber-500 rounded-xl text-sm text-black font-medium hover:bg-amber-400 transition-all">
                   Email Support
                 </a>
               </div>

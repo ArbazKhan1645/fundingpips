@@ -85,11 +85,11 @@ export default function SignUpPage() {
   const onSubmit = step === 3 ? onFinalSubmit : onNext;
 
   return (
-    <div className="min-h-screen bg-[#050d1a] flex items-center justify-center relative overflow-hidden p-4 py-12">
+    <div className="min-h-screen bg-[#0a0a0a] flex items-center justify-center relative overflow-hidden p-4 py-12">
       <div className="absolute inset-0">
         <div className="grid-bg absolute inset-0 opacity-20" />
-        <div className="absolute top-1/4 right-1/4 w-96 h-96 rounded-full bg-violet-600/10 blur-3xl animate-float" />
-        <div className="absolute bottom-1/4 left-1/4 w-96 h-96 rounded-full bg-sky-600/10 blur-3xl animate-float-delayed" />
+        <div className="absolute top-1/4 right-1/4 w-96 h-96 rounded-full bg-amber-600/10 blur-3xl animate-float" />
+        <div className="absolute bottom-1/4 left-1/4 w-96 h-96 rounded-full bg-amber-500/10 blur-3xl animate-float-delayed" />
       </div>
 
       <div className="relative z-10 w-full max-w-lg">
@@ -100,8 +100,8 @@ export default function SignUpPage() {
           className="text-center mb-8"
         >
           <Link href="/" className="inline-flex items-center gap-2">
-            <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-sky-500 to-cyan-400 flex items-center justify-center shadow-lg shadow-sky-500/30">
-              <span className="text-white font-black">LF</span>
+            <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-amber-600 to-amber-400 flex items-center justify-center shadow-lg shadow-amber-500/30">
+              <span className="text-black font-black">LF</span>
             </div>
             <span className="font-bold text-white text-xl">
               Lord<span className="gradient-text-blue">funded</span>
@@ -121,7 +121,7 @@ export default function SignUpPage() {
                 s.id < step
                   ? 'bg-emerald-500 text-white'
                   : s.id === step
-                  ? 'bg-sky-500 text-white ring-4 ring-sky-500/20'
+                  ? 'bg-amber-500 text-black ring-4 ring-amber-500/20'
                   : 'bg-white/5 text-slate-500 border border-white/10'
               }`}>
                 {s.id < step ? <Check size={12} /> : s.id}
@@ -165,12 +165,12 @@ export default function SignUpPage() {
                     <div>
                       <label className="block text-sm font-medium text-slate-300 mb-1.5">Title</label>
                       <select
-                        className="w-full h-12 px-4 rounded-xl bg-white/5 border border-white/10 text-white text-sm focus:outline-none focus:border-sky-500/60 transition-all"
+                        className="w-full h-12 px-4 rounded-xl bg-white/5 border border-white/10 text-white text-sm focus:outline-none focus:border-amber-500/60 transition-all"
                         {...register('title')}
                       >
-                        <option value="" className="bg-[#0a1628]">Select</option>
+                        <option value="" className="bg-[#0a0a0a]">Select</option>
                         {TITLES.map((t) => (
-                          <option key={t} value={t} className="bg-[#0a1628]">{t}</option>
+                          <option key={t} value={t} className="bg-[#0a0a0a]">{t}</option>
                         ))}
                       </select>
                       {(errors as Record<string, { message?: string }>).title && (
@@ -206,12 +206,12 @@ export default function SignUpPage() {
                   <div>
                     <label className="block text-sm font-medium text-slate-300 mb-1.5">Country</label>
                     <select
-                      className="w-full h-12 px-4 rounded-xl bg-white/5 border border-white/10 text-white text-sm focus:outline-none focus:border-sky-500/60 transition-all"
+                      className="w-full h-12 px-4 rounded-xl bg-white/5 border border-white/10 text-white text-sm focus:outline-none focus:border-amber-500/60 transition-all"
                       {...register('country')}
                     >
-                      <option value="" className="bg-[#0a1628]">Select your country</option>
+                      <option value="" className="bg-[#0a0a0a]">Select your country</option>
                       {COUNTRIES.map((c) => (
-                        <option key={c} value={c} className="bg-[#0a1628]">{c}</option>
+                        <option key={c} value={c} className="bg-[#0a0a0a]">{c}</option>
                       ))}
                     </select>
                     {(errors as Record<string, { message?: string }>).country && (
@@ -267,9 +267,9 @@ export default function SignUpPage() {
                   />
                   <p className="text-xs text-slate-500">
                     By creating an account, you agree to our{' '}
-                    <Link href="#" className="text-sky-400 hover:text-sky-300">Terms of Service</Link>
+                    <Link href="#" className="text-amber-400 hover:text-amber-300">Terms of Service</Link>
                     {' '}and{' '}
-                    <Link href="#" className="text-sky-400 hover:text-sky-300">Privacy Policy</Link>.
+                    <Link href="#" className="text-amber-400 hover:text-amber-300">Privacy Policy</Link>.
                   </p>
                 </>
               )}
@@ -300,7 +300,7 @@ export default function SignUpPage() {
 
           <p className="text-center text-sm text-slate-400 mt-6">
             Already have an account?{' '}
-            <Link href="/signin" className="text-sky-400 font-medium hover:text-sky-300 transition-colors">
+            <Link href="/signin" className="text-amber-400 font-medium hover:text-amber-300 transition-colors">
               Sign In
             </Link>
           </p>

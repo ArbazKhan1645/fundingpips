@@ -58,12 +58,12 @@ export default function SignInPage() {
   };
 
   return (
-    <div className="min-h-screen bg-[#050d1a] flex items-center justify-center relative overflow-hidden p-4">
+    <div className="min-h-screen bg-[#0a0a0a] flex items-center justify-center relative overflow-hidden p-4">
       {/* Background */}
       <div className="absolute inset-0">
         <div className="grid-bg absolute inset-0 opacity-20" />
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 rounded-full bg-sky-600/10 blur-3xl animate-float" />
-        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 rounded-full bg-violet-600/10 blur-3xl animate-float-delayed" />
+        <div className="absolute top-1/4 left-1/4 w-96 h-96 rounded-full bg-amber-600/10 blur-3xl animate-float" />
+        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 rounded-full bg-amber-500/10 blur-3xl animate-float-delayed" />
       </div>
 
       <div className="relative z-10 w-full max-w-md">
@@ -74,8 +74,8 @@ export default function SignInPage() {
           className="text-center mb-8"
         >
           <Link href="/" className="inline-flex items-center gap-2">
-            <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-sky-500 to-cyan-400 flex items-center justify-center shadow-lg shadow-sky-500/30">
-              <span className="text-white font-black">LF</span>
+            <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-amber-600 to-amber-400 flex items-center justify-center shadow-lg shadow-amber-500/30">
+              <span className="text-black font-black">LF</span>
             </div>
             <span className="font-bold text-white text-xl">
               Lord<span className="gradient-text-blue">funded</span>
@@ -130,7 +130,7 @@ export default function SignInPage() {
             <div className="space-y-1.5">
               <div className="flex items-center justify-between">
                 <label className="text-sm font-medium text-slate-300">Password</label>
-                <Link href="#" className="text-xs text-sky-400 hover:text-sky-300 transition-colors">
+                <Link href="#" className="text-xs text-amber-400 hover:text-amber-300 transition-colors">
                   Forgot password?
                 </Link>
               </div>
@@ -153,7 +153,7 @@ export default function SignInPage() {
               <input
                 type="checkbox"
                 id="rememberMe"
-                className="w-4 h-4 rounded border-white/10 bg-white/5 accent-sky-500"
+                className="w-4 h-4 rounded border-white/10 bg-white/5 accent-amber-500"
                 {...register('rememberMe')}
               />
               <label htmlFor="rememberMe" className="text-sm text-slate-300 cursor-pointer">
@@ -185,7 +185,7 @@ export default function SignInPage() {
 
           <p className="text-center text-sm text-slate-400 mt-6">
             Don't have an account?{' '}
-            <Link href="/signup" className="text-sky-400 font-medium hover:text-sky-300 transition-colors">
+            <Link href="/signup" className="text-amber-400 font-medium hover:text-amber-300 transition-colors">
               Create one free
             </Link>
           </p>

@@ -60,8 +60,8 @@ export default function DashboardPage() {
             change: 'This month',
             positive: true,
             icon: TrendingUp,
-            color: 'text-sky-400',
-            bg: 'bg-sky-500/10',
+            color: 'text-amber-400',
+            bg: 'bg-amber-500/10',
           },
           {
             label: 'Active Accounts',
@@ -69,8 +69,8 @@ export default function DashboardPage() {
             change: '2 phases',
             positive: true,
             icon: Activity,
-            color: 'text-violet-400',
-            bg: 'bg-violet-500/10',
+            color: 'text-amber-500',
+            bg: 'bg-amber-500/10',
           },
           {
             label: 'Total Payouts',
@@ -78,14 +78,14 @@ export default function DashboardPage() {
             change: '3 payouts',
             positive: true,
             icon: DollarSign,
-            color: 'text-cyan-400',
-            bg: 'bg-cyan-500/10',
+            color: 'text-yellow-400',
+            bg: 'bg-yellow-500/10',
           },
         ].map((stat) => (
           <StaggerItem key={stat.label}>
             <motion.div
               whileHover={{ y: -2 }}
-              className="glass rounded-2xl p-5 border border-white/8 hover:border-sky-500/20 transition-all"
+              className="glass rounded-2xl p-5 border border-white/8 hover:border-amber-500/20 transition-all"
             >
               <div className={`w-10 h-10 rounded-xl ${stat.bg} flex items-center justify-center ${stat.color} mb-3`}>
                 <stat.icon size={18} />
@@ -113,18 +113,18 @@ export default function DashboardPage() {
                 <AreaChart data={chartData.equity}>
                   <defs>
                     <linearGradient id="equityGrad" x1="0" y1="0" x2="0" y2="1">
-                      <stop offset="5%" stopColor="#0ea5e9" stopOpacity={0.3} />
-                      <stop offset="95%" stopColor="#0ea5e9" stopOpacity={0} />
+                      <stop offset="5%" stopColor="#C9A84C" stopOpacity={0.3} />
+                      <stop offset="95%" stopColor="#C9A84C" stopOpacity={0} />
                     </linearGradient>
                   </defs>
                   <CartesianGrid strokeDasharray="3 3" stroke="rgba(255,255,255,0.05)" />
                   <XAxis dataKey="date" tick={{ fill: '#64748b', fontSize: 11 }} axisLine={false} tickLine={false} />
                   <YAxis tick={{ fill: '#64748b', fontSize: 11 }} axisLine={false} tickLine={false} tickFormatter={(v) => `$${(v/1000).toFixed(0)}K`} />
                   <Tooltip
-                    contentStyle={{ background: '#0a1628', border: '1px solid rgba(255,255,255,0.1)', borderRadius: '12px', color: '#e2e8f0' }}
+                    contentStyle={{ background: '#1a1000', border: '1px solid rgba(201,168,76,0.15)', borderRadius: '12px', color: '#e2e8f0' }}
                     formatter={(v: unknown) => [formatCurrency(Number(v) || 0), 'Equity']}
                   />
-                  <Area type="monotone" dataKey="value" stroke="#0ea5e9" strokeWidth={2} fill="url(#equityGrad)" dot={false} />
+                  <Area type="monotone" dataKey="value" stroke="#C9A84C" strokeWidth={2} fill="url(#equityGrad)" dot={false} />
                 </AreaChart>
               </ResponsiveContainer>
             )}
@@ -144,7 +144,7 @@ export default function DashboardPage() {
                   <XAxis dataKey="date" tick={{ fill: '#64748b', fontSize: 11 }} axisLine={false} tickLine={false} />
                   <YAxis tick={{ fill: '#64748b', fontSize: 11 }} axisLine={false} tickLine={false} />
                   <Tooltip
-                    contentStyle={{ background: '#0a1628', border: '1px solid rgba(255,255,255,0.1)', borderRadius: '12px', color: '#e2e8f0' }}
+                    contentStyle={{ background: '#1a1000', border: '1px solid rgba(201,168,76,0.15)', borderRadius: '12px', color: '#e2e8f0' }}
                     formatter={(v: unknown) => { const n = Number(v) || 0; return [formatCurrency(Math.abs(n)), n >= 0 ? 'Profit' : 'Loss']; }}
                   />
                   <Bar dataKey="profit" fill="#10b981" radius={[3,3,0,0]} />
@@ -172,11 +172,11 @@ export default function DashboardPage() {
                 <motion.div
                   key={account.id}
                   whileHover={{ scale: 1.005 }}
-                  className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 p-4 bg-white/3 rounded-xl border border-white/5 hover:border-sky-500/20 transition-all cursor-pointer"
+                  className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 p-4 bg-white/3 rounded-xl border border-white/5 hover:border-amber-500/20 transition-all cursor-pointer"
                 >
                   <div className="flex items-center gap-4">
                     <div className={`w-10 h-10 rounded-xl flex items-center justify-center text-white font-bold text-xs ${
-                      account.phase === 'funded' ? 'bg-gradient-to-br from-emerald-500 to-teal-500' : 'bg-gradient-to-br from-sky-500 to-violet-500'
+                      account.phase === 'funded' ? 'bg-gradient-to-br from-emerald-500 to-teal-500' : 'bg-gradient-to-br from-amber-600 to-amber-800'
                     }`}>
                       {account.phase === 'funded' ? 'FA' : account.phase === 'phase1' ? 'P1' : 'P2'}
                     </div>
@@ -276,7 +276,7 @@ export default function DashboardPage() {
                     initial={{ width: 0 }}
                     animate={{ width: `${Math.min((account.currentProfit / account.profitTarget) * 100, 100)}%` }}
                     transition={{ duration: 1.5, ease: 'easeOut', delay: 0.5 }}
-                    className="h-full bg-gradient-to-r from-sky-500 to-cyan-400 rounded-full"
+                    className="h-full bg-gradient-to-r from-amber-600 to-amber-400 rounded-full"
                   />
                 </div>
                 <div className="flex items-center justify-between text-sm">

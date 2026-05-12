@@ -36,14 +36,14 @@ export default function AccountsPage() {
             <StaggerItem key={account.id}>
               <motion.div
                 whileHover={{ y: -2 }}
-                className="glass rounded-2xl p-6 border border-white/8 hover:border-sky-500/20 transition-all"
+                className="glass rounded-2xl p-6 border border-white/8 hover:border-amber-500/20 transition-all"
               >
                 <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-6">
                   <div className="flex items-center gap-4">
                     <div className={`w-14 h-14 rounded-2xl flex items-center justify-center text-white font-black text-lg shadow-lg ${
                       account.phase === 'funded'
                         ? 'bg-gradient-to-br from-emerald-500 to-teal-500 shadow-emerald-500/20'
-                        : 'bg-gradient-to-br from-sky-500 to-violet-500 shadow-sky-500/20'
+                        : 'bg-gradient-to-br from-amber-600 to-amber-800 shadow-amber-500/20'
                     }`}>
                       {account.phase === 'funded' ? 'FA' : account.phase === 'phase1' ? 'P1' : 'P2'}
                     </div>
@@ -89,7 +89,7 @@ export default function AccountsPage() {
                         initial={{ width: 0 }}
                         animate={{ width: `${Math.min((account.currentProfit / account.profitTarget) * 100, 100)}%` }}
                         transition={{ duration: 1, delay: 0.3 }}
-                        className="h-full bg-gradient-to-r from-sky-500 to-cyan-400 rounded-full"
+                        className="h-full bg-gradient-to-r from-amber-600 to-amber-400 rounded-full"
                       />
                     </div>
                   </div>

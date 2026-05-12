@@ -10,15 +10,15 @@ import { useReducedMotion, isMobileDevice } from '@/lib/use-reduced-motion';
 
 const metrics = [
   { label: 'Total Payouts', value: '$2.4M+', icon: TrendingUp, color: 'text-emerald-400', border: 'border-emerald-500/20' },
-  { label: 'Funded Traders', value: '50K+', icon: Users, color: 'text-sky-400', border: 'border-sky-500/20' },
-  { label: 'Success Rate', value: '94%', icon: Zap, color: 'text-violet-400', border: 'border-violet-500/20' },
-  { label: 'Countries', value: '150+', icon: Shield, color: 'text-cyan-400', border: 'border-cyan-500/20' },
+  { label: 'Funded Traders', value: '50K+', icon: Users, color: 'text-amber-400', border: 'border-amber-500/20' },
+  { label: 'Success Rate', value: '94%', icon: Zap, color: 'text-amber-500', border: 'border-amber-600/20' },
+  { label: 'Countries', value: '150+', icon: Shield, color: 'text-yellow-400', border: 'border-yellow-500/20' },
 ];
 
 const floatingCards = [
   { label: 'Payout Sent', value: '+$3,200', sub: 'USDT • 1 min ago', color: 'text-emerald-400', icon: '💸', delay: 0.6 },
-  { label: 'Challenge Passed', value: 'Phase 1 ✓', sub: '$100K Account', color: 'text-sky-400', icon: '🏆', delay: 0.85 },
-  { label: 'Profit Split', value: '90%', sub: 'Your earnings', color: 'text-violet-400', icon: '📈', delay: 1.1 },
+  { label: 'Challenge Passed', value: 'Phase 1 ✓', sub: '$100K Account', color: 'text-amber-400', icon: '🏆', delay: 0.85 },
+  { label: 'Profit Split', value: '90%', sub: 'Your earnings', color: 'text-yellow-400', icon: '📈', delay: 1.1 },
 ];
 
 function HeroVisual() {
@@ -36,14 +36,14 @@ function HeroVisual() {
       {/* Outer decorative rings - disable on mobile */}
       {!shouldReduceAnimations && (
         <>
-          <div className="absolute inset-0 rounded-full border border-sky-500/8 animate-spin-slow" />
-          <div className="absolute inset-6 rounded-full border border-violet-500/8 animate-spin-reverse" />
+          <div className="absolute inset-0 rounded-full border border-amber-500/8 animate-spin-slow" />
+          <div className="absolute inset-6 rounded-full border border-amber-400/8 animate-spin-reverse" />
         </>
       )}
 
       {/* Glow orbs */}
-      <div className="absolute w-72 h-72 rounded-full bg-sky-600/8 blur-3xl" />
-      <div className="absolute w-48 h-48 rounded-full bg-violet-600/8 blur-2xl translate-x-12 translate-y-8" />
+      <div className="absolute w-72 h-72 rounded-full bg-amber-600/8 blur-3xl" />
+      <div className="absolute w-48 h-48 rounded-full bg-amber-500/8 blur-2xl translate-x-12 translate-y-8" />
 
       {/* Center card — main trading panel */}
       <motion.div
@@ -55,13 +55,13 @@ function HeroVisual() {
             : { duration: 0.7, delay: 0.3, type: 'spring', damping: 18 }
         }
         className="relative z-10 w-52 rounded-3xl overflow-hidden shadow-2xl shadow-black/60"
-        style={{ background: 'linear-gradient(145deg, rgba(14,165,233,0.15) 0%, rgba(8,20,40,0.95) 100%)', border: '1px solid rgba(14,165,233,0.25)' }}
+        style={{ background: 'linear-gradient(145deg, rgba(201,168,76,0.15) 0%, rgba(10,10,10,0.95) 100%)', border: '1px solid rgba(201,168,76,0.25)' }}
       >
         {/* Card header */}
         <div className="px-5 pt-5 pb-3">
           <div className="flex items-center justify-between mb-3">
-            <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-sky-500 to-cyan-400 flex items-center justify-center shadow-lg shadow-sky-500/30">
-              <span className="text-white font-black text-xs">FP</span>
+            <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-amber-600 to-amber-400 flex items-center justify-center shadow-lg shadow-amber-500/30">
+              <span className="text-black font-black text-xs">LF</span>
             </div>
             <span className="text-xs text-emerald-400 font-semibold bg-emerald-400/10 border border-emerald-400/20 px-2 py-0.5 rounded-full">● Live</span>
           </div>
@@ -83,7 +83,7 @@ function HeroVisual() {
                     : { duration: 0.6, delay: 0.5 + i * 0.05 }
                 }
                 className="flex-1 rounded-sm"
-                style={{ background: i >= 7 ? 'linear-gradient(180deg,#0ea5e9,#22d3ee)' : 'rgba(255,255,255,0.1)' }}
+                style={{ background: i >= 7 ? 'linear-gradient(180deg,#C9A84C,#E8C97A)' : 'rgba(255,255,255,0.1)' }}
               />
             ))}
           </div>
@@ -97,7 +97,7 @@ function HeroVisual() {
           </div>
           <div className="px-4 py-3">
             <p className="text-xs text-slate-400">Split</p>
-            <p className="text-sm font-bold text-sky-400">90%</p>
+            <p className="text-sm font-bold text-amber-400">90%</p>
           </div>
         </div>
       </motion.div>
@@ -118,7 +118,7 @@ function HeroVisual() {
             className="absolute flex items-center gap-2.5 px-3.5 py-2.5 rounded-2xl shadow-xl"
             style={{
               ...positions[i],
-              background: 'rgba(10,22,45,0.92)',
+              background: 'rgba(10,10,10,0.92)',
               border: '1px solid rgba(255,255,255,0.1)',
               backdropFilter: 'blur(20px)',
               minWidth: 150,
@@ -143,7 +143,7 @@ function HeroVisual() {
             className="absolute inset-0"
           >
             <div
-              className="w-3 h-3 rounded-full bg-sky-400 shadow-lg shadow-sky-400/60 absolute"
+              className="w-3 h-3 rounded-full bg-amber-400 shadow-lg shadow-amber-400/60 absolute"
               style={{ top: '4%', left: '50%', marginLeft: -6 }}
             />
           </motion.div>
@@ -153,7 +153,7 @@ function HeroVisual() {
             className="absolute inset-8"
           >
             <div
-              className="w-2 h-2 rounded-full bg-violet-400 shadow-lg shadow-violet-400/60 absolute"
+              className="w-2 h-2 rounded-full bg-yellow-400 shadow-lg shadow-yellow-400/60 absolute"
               style={{ bottom: '0%', left: '50%', marginLeft: -4 }}
             />
           </motion.div>
@@ -172,8 +172,8 @@ export function HeroSection() {
       {/* Background */}
       <div className="absolute inset-0 pointer-events-none">
         <div className="grid-bg absolute inset-0 opacity-30" />
-        <div className="absolute top-1/3 left-0 w-[500px] h-[500px] rounded-full bg-sky-600/6 blur-3xl" />
-        <div className="absolute bottom-1/4 right-0 w-[400px] h-[400px] rounded-full bg-violet-600/6 blur-3xl" />
+        <div className="absolute top-1/3 left-0 w-[500px] h-[500px] rounded-full bg-amber-600/6 blur-3xl" />
+        <div className="absolute bottom-1/4 right-0 w-[400px] h-[400px] rounded-full bg-amber-500/6 blur-3xl" />
       </div>
 
       <div className="relative w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -187,7 +187,7 @@ export function HeroSection() {
               transition={{ duration: 0.5 }}
             >
               <Badge variant="info">
-                <span className="w-2 h-2 rounded-full bg-sky-400 animate-pulse inline-block shrink-0" />
+                <span className="w-2 h-2 rounded-full bg-amber-400 animate-pulse inline-block shrink-0" />
                 Trusted by 50,000+ Traders Worldwide
               </Badge>
             </motion.div>
@@ -212,7 +212,7 @@ export function HeroSection() {
             >
               Pass our evaluation and access up to{' '}
               <span className="text-white font-semibold">$200,000</span> in funded capital.
-              Keep up to <span className="text-sky-400 font-semibold">90%</span> of your profits.
+              Keep up to <span className="text-amber-400 font-semibold">90%</span> of your profits.
             </motion.p>
 
             <motion.div
@@ -222,7 +222,7 @@ export function HeroSection() {
               className="flex flex-wrap gap-3"
             >
               <Link href="/signup">
-                <Button variant="primary" size="lg" className="gap-2 shadow-2xl shadow-sky-500/25">
+                <Button variant="primary" size="lg" className="gap-2 shadow-2xl shadow-amber-500/25">
                   Start Challenge
                   <ArrowRight size={17} />
                 </Button>
@@ -265,7 +265,7 @@ export function HeroSection() {
       </div>
 
       {/* Bottom fade */}
-      <div className="absolute bottom-0 left-0 right-0 h-28 bg-gradient-to-t from-[#050d1a] to-transparent pointer-events-none" />
+      <div className="absolute bottom-0 left-0 right-0 h-28 bg-gradient-to-t from-[#0a0a0a] to-transparent pointer-events-none" />
     </section>
   );
 }
