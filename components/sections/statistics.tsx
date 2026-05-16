@@ -1,5 +1,6 @@
 'use client';
 
+import { useTranslations } from 'next-intl';
 import { FadeIn, StaggerContainer, StaggerItem } from '@/components/animations/fade-in';
 import { AnimatedCounter } from '@/components/animations/animated-counter';
 import { Badge } from '@/components/ui/badge';
@@ -14,6 +15,8 @@ const stats = [
 ];
 
 export function StatisticsSection() {
+  const t = useTranslations('stats');
+
   return (
     <section className="py-24 relative overflow-hidden">
       {/* Background */}
@@ -29,14 +32,13 @@ export function StatisticsSection() {
             Live Statistics
           </Badge>
           <h2 className="text-4xl sm:text-5xl font-black text-white mb-4">
-            Trusted by Traders{' '}
-            <span className="gradient-text">Globally</span>
+            {t('title')}
           </h2>
-          <p className="text-lg text-slate-400">Our numbers speak for themselves</p>
+          <p className="text-lg text-slate-400">{t('subtitle')}</p>
         </FadeIn>
 
         <StaggerContainer className="grid grid-cols-2 md:grid-cols-3 gap-6">
-          {stats.map((stat, i) => (
+          {stats.map((stat) => (
             <StaggerItem key={stat.label}>
               <div className="glass rounded-3xl p-8 text-center space-y-2 border border-white/5 hover:border-amber-500/20 transition-all duration-300 group hover:-translate-y-1">
                 <div className="text-4xl sm:text-5xl font-black gradient-text group-hover:scale-110 transition-transform duration-300">

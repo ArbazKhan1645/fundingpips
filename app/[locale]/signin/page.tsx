@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import Link from 'next/link';
+import { useTranslations } from 'next-intl';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
@@ -11,7 +11,8 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { authService } from '@/services/auth.service';
 import { useAuthStore } from '@/store/auth.store';
-import { useRouter } from 'next/navigation';
+import { Link, useRouter } from '@/i18n/navigation';
+import { BrandLogo } from '@/components/brand/logo';
 
 const schema = z.object({
   email: z.string().email('Invalid email address'),
@@ -22,6 +23,7 @@ const schema = z.object({
 type FormData = z.infer<typeof schema>;
 
 export default function SignInPage() {
+  const t = useTranslations('auth');
   const [showPassword, setShowPassword] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -74,12 +76,7 @@ export default function SignInPage() {
           className="text-center mb-8"
         >
           <Link href="/" className="inline-flex items-center gap-2">
-            <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-amber-600 to-amber-400 flex items-center justify-center shadow-lg shadow-amber-500/30">
-              <span className="text-black font-black">LF</span>
-            </div>
-            <span className="font-bold text-white text-xl">
-              Lord<span className="gradient-text-blue">funded</span>
-            </span>
+            <BrandLogo className="h-10 w-10" textClassName="text-xl" />
           </Link>
         </motion.div>
 
@@ -90,8 +87,8 @@ export default function SignInPage() {
           className="glass-strong rounded-3xl p-8 border border-white/10 shadow-2xl shadow-black/50"
         >
           <div className="text-center mb-8">
-            <h1 className="text-2xl font-black text-white">Welcome back</h1>
-            <p className="text-sm text-slate-400 mt-1">Sign in to your Lordfunded account</p>
+            <h1 className="text-2xl font-black text-white">{t('signIn')}</h1>
+            <p className="text-sm text-slate-400 mt-1">Lordfunded</p>
           </div>
 
           {/* Google Button */}
@@ -106,20 +103,20 @@ export default function SignInPage() {
               <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/>
               <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/>
             </svg>
-            Continue with Google
+            {t('google')}
           </button>
 
           {/* Divider */}
           <div className="flex items-center gap-3 mb-6">
             <div className="flex-1 h-px bg-white/10" />
-            <span className="text-xs text-slate-500">or sign in with email</span>
+            <span className="text-xs text-slate-500">{t('orContinueWith')}</span>
             <div className="flex-1 h-px bg-white/10" />
           </div>
 
           {/* Form */}
           <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
             <Input
-              label="Email Address"
+              label={t('email')}
               type="email"
               placeholder="you@example.com"
               icon={<Mail size={16} />}
@@ -129,9 +126,9 @@ export default function SignInPage() {
 
             <div className="space-y-1.5">
               <div className="flex items-center justify-between">
-                <label className="text-sm font-medium text-slate-300">Password</label>
+                <label className="text-sm font-medium text-slate-300">{t('password')}</label>
                 <Link href="#" className="text-xs text-amber-400 hover:text-amber-300 transition-colors">
-                  Forgot password?
+                  {t('forgotPassword')}
                 </Link>
               </div>
               <Input
@@ -157,7 +154,7 @@ export default function SignInPage() {
                 {...register('rememberMe')}
               />
               <label htmlFor="rememberMe" className="text-sm text-slate-300 cursor-pointer">
-                Remember me for 30 days
+                {t('rememberMe')}
               </label>
             </div>
 
@@ -178,15 +175,15 @@ export default function SignInPage() {
               size="lg"
               loading={isLoading}
             >
-              Sign In
+              {t('signIn')}
               <ArrowRight size={16} />
             </Button>
           </form>
 
           <p className="text-center text-sm text-slate-400 mt-6">
-            Don't have an account?{' '}
+            {t('noAccount')}{' '}
             <Link href="/signup" className="text-amber-400 font-medium hover:text-amber-300 transition-colors">
-              Create one free
+              {t('signUp')}
             </Link>
           </p>
         </motion.div>

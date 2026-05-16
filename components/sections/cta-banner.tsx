@@ -1,10 +1,10 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import Link from 'next/link';
 import { ArrowRight, Rocket } from 'lucide-react';
 import { FadeIn } from '@/components/animations/fade-in';
 import { Button } from '@/components/ui/button';
+import { Link } from '@/i18n/navigation';
 
 export function CTABanner() {
   return (

@@ -6,8 +6,8 @@ import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { mockAccounts } from '@/mock/dashboard';
 import { formatCurrency, formatPercent, formatDate } from '@/lib/utils';
-import Link from 'next/link';
 import { ArrowUpRight, CreditCard } from 'lucide-react';
+import { Link } from '@/i18n/navigation';
 
 export default function AccountsPage() {
   return (

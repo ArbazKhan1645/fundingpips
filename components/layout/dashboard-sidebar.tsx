@@ -1,7 +1,6 @@
 'use client';
 
-import Link from 'next/link';
-import { usePathname } from 'next/navigation';
+import { useTranslations } from 'next-intl';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
   LayoutDashboard, CreditCard, Banknote, Target,
@@ -10,32 +9,30 @@ import {
 import { cn } from '@/lib/utils';
 import { useUIStore } from '@/store/ui.store';
 import { useAuthStore } from '@/store/auth.store';
+import { Link, usePathname } from '@/i18n/navigation';
+import { BrandLogo } from '@/components/brand/logo';
 
 const navItems = [
-  { icon: LayoutDashboard, label: 'Overview', href: '/dashboard' },
-  { icon: CreditCard, label: 'My Accounts', href: '/dashboard/accounts' },
-  { icon: Banknote, label: 'Payouts', href: '/dashboard/payouts' },
-  { icon: Target, label: 'Objectives', href: '/dashboard/objectives' },
-  { icon: Settings, label: 'Settings', href: '/dashboard/settings' },
-  { icon: HelpCircle, label: 'Support', href: '/dashboard/support' },
-];
+  { icon: LayoutDashboard, labelKey: 'overview', href: '/dashboard' },
+  { icon: CreditCard, labelKey: 'accounts', href: '/dashboard/accounts' },
+  { icon: Banknote, labelKey: 'payouts', href: '/dashboard/payouts' },
+  { icon: Target, labelKey: 'objectives', href: '/dashboard/objectives' },
+  { icon: Settings, labelKey: 'settings', href: '/dashboard/settings' },
+  { icon: HelpCircle, labelKey: 'support', href: '/dashboard/support' },
+] as const;
 
 export function DashboardSidebar() {
   const { isSidebarOpen, setSidebarOpen } = useUIStore();
   const { user, logout } = useAuthStore();
   const pathname = usePathname();
+  const t = useTranslations('dashboard');
 
   const sidebarContent = (
     <div className="flex flex-col h-full">
       {/* Logo */}
       <div className="flex items-center justify-between p-6 pb-8">
         <Link href="/" className="flex items-center gap-2">
-          <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-amber-600 to-amber-400 flex items-center justify-center shadow-lg shadow-amber-500/30">
-            <span className="text-black font-black text-sm">LF</span>
-          </div>
-          <span className="font-bold text-white text-lg">
-            Lord<span className="gradient-text-blue">funded</span>
-          </span>
+          <BrandLogo className="h-9 w-9" textClassName="text-lg" />
         </Link>
         <button
           onClick={() => setSidebarOpen(false)}
@@ -47,7 +44,7 @@ export function DashboardSidebar() {
 
       {/* Nav */}
       <nav className="flex-1 px-3 space-y-1">
-        {navItems.map(({ icon: Icon, label, href }) => {
+        {navItems.map(({ icon: Icon, labelKey, href }) => {
           const isActive = pathname === href || (href !== '/dashboard' && pathname.startsWith(href));
           return (
             <Link
@@ -62,7 +59,7 @@ export function DashboardSidebar() {
               )}
             >
               <Icon size={18} className={isActive ? 'text-amber-400' : ''} />
-              {label}
+              {t(labelKey)}
               {isActive && (
                 <ChevronRight size={14} className="ml-auto text-amber-400" />
               )}
@@ -91,7 +88,7 @@ export function DashboardSidebar() {
           className="w-full flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium text-slate-400 hover:text-red-400 hover:bg-red-500/5 transition-all"
         >
           <LogOut size={16} />
-          Logout
+          {t('logout')}
         </button>
       </div>
     </div>

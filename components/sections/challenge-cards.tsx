@@ -2,14 +2,17 @@
 
 import { motion } from 'framer-motion';
 import { Check, Star, ArrowRight } from 'lucide-react';
-import Link from 'next/link';
+import { useTranslations } from 'next-intl';
 import { FadeIn, StaggerContainer, StaggerItem } from '@/components/animations/fade-in';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { mockChallenges } from '@/mock/challenges';
 import { formatCurrency } from '@/lib/utils';
+import { Link } from '@/i18n/navigation';
 
 export function ChallengeCardsSection() {
+  const t = useTranslations('challenges');
+
   return (
     <section className="py-24 relative overflow-hidden">
       <div className="absolute inset-0 pointer-events-none">
@@ -19,18 +22,17 @@ export function ChallengeCardsSection() {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <FadeIn className="text-center mb-16">
-          <Badge variant="info" className="mb-4">Funding Programs</Badge>
+          <Badge variant="info" className="mb-4">{t('title')}</Badge>
           <h2 className="text-4xl sm:text-5xl font-black text-white mb-4">
-            Choose Your{' '}
-            <span className="gradient-text">Challenge</span>
+            {t('title')}
           </h2>
           <p className="text-lg text-slate-400 max-w-2xl mx-auto">
-            Start your trading journey with our flexible evaluation programs and receive funded capital.
+            {t('subtitle')}
           </p>
         </FadeIn>
 
         <StaggerContainer className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-6">
-          {mockChallenges.map((challenge, i) => (
+          {mockChallenges.map((challenge) => (
             <StaggerItem key={challenge.id}>
               <motion.div
                 whileHover={{ y: -8, scale: 1.01 }}
@@ -45,7 +47,7 @@ export function ChallengeCardsSection() {
                   <div className="absolute -top-3 left-1/2 -translate-x-1/2">
                     <Badge variant="info" className="shadow-lg shadow-amber-500/30">
                       <Star size={10} fill="currentColor" />
-                      Most Popular
+                      {t('mostPopular')}
                     </Badge>
                   </div>
                 )}
@@ -57,7 +59,7 @@ export function ChallengeCardsSection() {
                     <span className="text-4xl font-black gradient-text">
                       ${challenge.price}
                     </span>
-                    <span className="text-sm text-slate-400">one-time</span>
+                    <span className="text-sm text-slate-400">{t('perMonth')}</span>
                   </div>
                   <p className="text-sm text-slate-400 mt-1">
                     {formatCurrency(challenge.accountSize)} Account
@@ -97,7 +99,7 @@ export function ChallengeCardsSection() {
                     variant={challenge.popular ? 'primary' : 'secondary'}
                     className="w-full gap-2"
                   >
-                    Get Started
+                    {t('getStarted')}
                     <ArrowRight size={14} />
                   </Button>
                 </Link>

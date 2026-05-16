@@ -1,7 +1,6 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import Link from 'next/link';
 import { ArrowRight, Users, DollarSign, TrendingUp, Copy, Check, Share2 } from 'lucide-react';
 import { useState } from 'react';
 import { Navbar } from '@/components/layout/navbar';
@@ -11,6 +10,7 @@ import { FadeIn, StaggerContainer, StaggerItem } from '@/components/animations/f
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { AnimatedCounter } from '@/components/animations/animated-counter';
+import { Link } from '@/i18n/navigation';
 
 const commissionTiers = [
   { name: 'Starter', referrals: '1-10', commission: '10%', color: 'from-amber-500/20 to-amber-500/5', border: 'border-amber-500/30' },

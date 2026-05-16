@@ -12,7 +12,7 @@ import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { mockAccounts, mockPayouts, mockChartData } from '@/mock/dashboard';
 import { formatCurrency, formatPercent, formatDate, getStatusColor } from '@/lib/utils';
-import Link from 'next/link';
+import { Link } from '@/i18n/navigation';
 
 export default function DashboardPage() {
   const [chartData, setChartData] = useState<typeof mockChartData | null>(null);

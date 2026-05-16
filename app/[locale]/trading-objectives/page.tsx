@@ -2,7 +2,6 @@
 
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import Link from 'next/link';
 import { Check } from 'lucide-react';
 import { Navbar } from '@/components/layout/navbar';
 import { Footer } from '@/components/layout/footer';
@@ -12,6 +11,7 @@ import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { mockChallenges } from '@/mock/challenges';
 import { formatCurrency } from '@/lib/utils';
+import { Link } from '@/i18n/navigation';
 
 const rules = [
   { rule: 'Minimum Trading Days', phase1: '5 days', phase2: '5 days', funded: 'No minimum' },

@@ -1,35 +1,39 @@
 'use client';
 
-import { useState, useEffect } from 'react';
-import Link from 'next/link';
-import { usePathname } from 'next/navigation';
+import { useEffect, useState } from 'react';
+import { useLocale, useTranslations } from 'next-intl';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X, ChevronDown, Globe } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
+import { Link, usePathname, useRouter } from '@/i18n/navigation';
+import { BrandLogo } from '@/components/brand/logo';
 
 const navLinks = [
-  { label: 'Trading Objectives', href: '/trading-objectives' },
-  { label: 'About Us', href: '/about' },
-  { label: 'Affiliate', href: '/affiliate' },
-  { label: 'FAQ', href: '/faq' },
-];
+  { labelKey: 'objectives', href: '/trading-objectives' },
+  { labelKey: 'about', href: '/about' },
+  { labelKey: 'affiliate', href: '/affiliate' },
+  { labelKey: 'faq', href: '/faq' },
+] as const;
 
 const languages = [
-  { code: 'en', label: 'English', flag: '🇺🇸' },
-  { code: 'ar', label: 'العربية', flag: '🇦🇪' },
-  { code: 'ur', label: 'اردو', flag: '🇵🇰' },
-];
+  { code: 'en', label: 'English' },
+  { code: 'ar', label: 'العربية' },
+  { code: 'ur', label: 'اردو' },
+] as const;
 
-// Announcement bar height = 36px, Navbar height = 64px → total = 100px
 export const HEADER_HEIGHT = 100;
 
 export function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [langOpen, setLangOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const [currentLang, setCurrentLang] = useState(languages[0]);
   const pathname = usePathname();
+  const router = useRouter();
+  const locale = useLocale();
+  const t = useTranslations('nav');
+  const announcement = useTranslations('announcement');
+  const currentLang = languages.find((lang) => lang.code === locale) ?? languages[0];
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 10);
@@ -37,40 +41,33 @@ export function Navbar() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Close menus on route change
-  useEffect(() => {
+  const switchLocale = (nextLocale: (typeof languages)[number]['code']) => {
+    router.replace(pathname, { locale: nextLocale });
     setIsOpen(false);
     setLangOpen(false);
-  }, [pathname]);
+  };
 
   return (
     <div className="fixed top-0 left-0 right-0 z-50 flex flex-col">
-      {/* ── Announcement Bar ── */}
-      <div
-        className={cn(
-          'overflow-hidden transition-all duration-300',
-          scrolled ? 'h-0 opacity-0' : 'h-9 opacity-100'
-        )}
-      >
+      <div className={cn('overflow-hidden transition-all duration-300', scrolled ? 'h-0 opacity-0' : 'h-9 opacity-100')}>
         <div className="h-9 flex items-center bg-gradient-to-r from-amber-600/20 via-amber-500/20 to-yellow-600/20 border-b border-white/5 overflow-hidden">
           <div className="animate-marquee flex whitespace-nowrap">
             {[0, 1, 2, 3].map((i) => (
               <span key={i} className="flex items-center gap-8 px-8 text-xs text-slate-300">
-                <span>🎉 Over $2.4M+ paid out to funded traders</span>
-                <span className="text-amber-400">★</span>
-                <span>⚡ Instant account activation after payment</span>
-                <span className="text-amber-400">★</span>
-                <span>🏆 90% profit split — industry leading</span>
-                <span className="text-amber-400">★</span>
-                <span>🌍 150+ countries supported</span>
-                <span className="text-amber-400">★</span>
+                <span>{announcement('payouts')}</span>
+                <span className="text-amber-400">*</span>
+                <span>{announcement('activation')}</span>
+                <span className="text-amber-400">*</span>
+                <span>{announcement('split')}</span>
+                <span className="text-amber-400">*</span>
+                <span>{announcement('countries')}</span>
+                <span className="text-amber-400">*</span>
               </span>
             ))}
           </div>
         </div>
       </div>
 
-      {/* ── Main Navbar ── */}
       <div
         className={cn(
           'h-16 transition-all duration-300',
@@ -80,17 +77,10 @@ export function Navbar() {
         )}
       >
         <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex items-center justify-between gap-4">
-          {/* Logo */}
           <Link href="/" className="flex items-center gap-2.5 shrink-0">
-            <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-amber-600 to-amber-400 flex items-center justify-center shadow-lg shadow-amber-500/30 shrink-0">
-              <span className="text-black font-black text-sm">LF</span>
-            </div>
-            <span className="font-bold text-white text-lg tracking-tight">
-              Lord<span className="gradient-text-blue">funded</span>
-            </span>
+            <BrandLogo className="h-9 w-9" textClassName="text-lg" />
           </Link>
 
-          {/* Desktop nav */}
           <div className="hidden lg:flex items-center gap-1 flex-1 justify-center">
             {navLinks.map((link) => (
               <Link
@@ -98,30 +88,26 @@ export function Navbar() {
                 href={link.href}
                 className={cn(
                   'px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 whitespace-nowrap',
-                  pathname === link.href || pathname.endsWith(link.href)
+                  pathname === link.href
                     ? 'text-amber-400 bg-amber-500/10'
                     : 'text-slate-300 hover:text-white hover:bg-white/5'
                 )}
               >
-                {link.label}
+                {t(link.labelKey)}
               </Link>
             ))}
           </div>
 
-          {/* Right side */}
           <div className="hidden lg:flex items-center gap-2 shrink-0">
-            {/* Language Switcher */}
             <div className="relative">
               <button
+                type="button"
                 onClick={() => setLangOpen(!langOpen)}
                 className="flex items-center gap-1.5 px-3 py-2 rounded-lg text-sm text-slate-400 hover:text-white hover:bg-white/5 transition-all"
               >
                 <Globe size={14} />
-                <span>{currentLang.flag} {currentLang.code.toUpperCase()}</span>
-                <ChevronDown
-                  size={12}
-                  className={cn('transition-transform duration-200', langOpen && 'rotate-180')}
-                />
+                <span>{currentLang.code.toUpperCase()}</span>
+                <ChevronDown size={12} className={cn('transition-transform duration-200', langOpen && 'rotate-180')} />
               </button>
               <AnimatePresence>
                 {langOpen && (
@@ -135,15 +121,15 @@ export function Navbar() {
                     {languages.map((lang) => (
                       <button
                         key={lang.code}
-                        onClick={() => { setCurrentLang(lang); setLangOpen(false); }}
+                        type="button"
+                        onClick={() => switchLocale(lang.code)}
                         className={cn(
                           'w-full flex items-center gap-2.5 px-3 py-2 rounded-lg text-sm transition-all',
-                          currentLang.code === lang.code
+                          locale === lang.code
                             ? 'bg-amber-500/20 text-amber-400'
                             : 'text-slate-300 hover:bg-white/5 hover:text-white'
                         )}
                       >
-                        <span>{lang.flag}</span>
                         <span>{lang.label}</span>
                       </button>
                     ))}
@@ -153,17 +139,15 @@ export function Navbar() {
             </div>
 
             <Link href="/signin">
-              <Button variant="ghost" size="sm">Sign In</Button>
+              <Button variant="ghost" size="sm">{t('signIn')}</Button>
             </Link>
             <Link href="/signup">
-              <Button variant="primary" size="sm">
-                Get Started
-              </Button>
+              <Button variant="primary" size="sm">{t('getStarted')}</Button>
             </Link>
           </div>
 
-          {/* Mobile menu toggle */}
           <button
+            type="button"
             onClick={() => setIsOpen(!isOpen)}
             className="lg:hidden p-2 rounded-xl text-slate-300 hover:text-white hover:bg-white/5 transition-all"
             aria-label="Toggle menu"
@@ -173,7 +157,6 @@ export function Navbar() {
         </nav>
       </div>
 
-      {/* ── Mobile Menu ── */}
       <AnimatePresence>
         {isOpen && (
           <motion.div
@@ -191,20 +174,37 @@ export function Navbar() {
                   onClick={() => setIsOpen(false)}
                   className={cn(
                     'px-4 py-3 rounded-xl text-sm font-medium transition-all',
-                    pathname === link.href || pathname.endsWith(link.href)
+                    pathname === link.href
                       ? 'bg-amber-500/15 text-amber-400'
                       : 'text-slate-300 hover:text-white hover:bg-white/5'
                   )}
                 >
-                  {link.label}
+                  {t(link.labelKey)}
                 </Link>
               ))}
+              <div className="flex flex-wrap gap-2 mt-3 pt-3 border-t border-white/8">
+                {languages.map((lang) => (
+                  <button
+                    key={lang.code}
+                    type="button"
+                    onClick={() => switchLocale(lang.code)}
+                    className={cn(
+                      'px-3 py-2 rounded-lg text-sm transition-all',
+                      locale === lang.code
+                        ? 'bg-amber-500/20 text-amber-400'
+                        : 'text-slate-300 hover:bg-white/5 hover:text-white'
+                    )}
+                  >
+                    {lang.label}
+                  </button>
+                ))}
+              </div>
               <div className="flex gap-2 mt-3 pt-3 border-t border-white/8">
                 <Link href="/signin" className="flex-1">
-                  <Button variant="secondary" size="sm" className="w-full">Sign In</Button>
+                  <Button variant="secondary" size="sm" className="w-full">{t('signIn')}</Button>
                 </Link>
                 <Link href="/signup" className="flex-1">
-                  <Button variant="primary" size="sm" className="w-full">Get Started</Button>
+                  <Button variant="primary" size="sm" className="w-full">{t('getStarted')}</Button>
                 </Link>
               </div>
             </div>

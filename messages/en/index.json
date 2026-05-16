@@ -1,4 +1,10 @@
 {
+  "announcement": {
+    "payouts": "Over $2.4M+ paid out to funded traders",
+    "activation": "Instant account activation after payment",
+    "split": "90% profit split, industry leading",
+    "countries": "150+ countries supported"
+  },
   "nav": {
     "home": "Home",
     "objectives": "Trading Objectives",
@@ -27,7 +33,7 @@
     "subtitle": "Start your trading journey with our flexible funding programs",
     "mostPopular": "Most Popular",
     "getStarted": "Get Started",
-    "perMonth": "/one-time"
+    "perMonth": "one-time"
   },
   "features": {
     "title": "Why Thousands Choose Lordfunded",
@@ -42,11 +48,52 @@
     "subtitle": "Everything you need to know about Lordfunded"
   },
   "footer": {
-    "description": "The world's leading prop trading firm. Get funded and trade with confidence.",
-    "newsletter": "Subscribe to Newsletter",
-    "newsletterPlaceholder": "Enter your email",
+    "description": "The world's leading prop trading firm. Get funded and trade with confidence. Over $2.4M+ paid out to traders worldwide.",
+    "newsletter": "Newsletter",
+    "newsletterPlaceholder": "your@email.com",
     "subscribe": "Subscribe",
-    "rights": "All rights reserved."
+    "rights": "All rights reserved.",
+    "risk": "Risk Disclosure: Trading financial instruments involves substantial risk of loss. Past performance does not guarantee future results.",
+    "trustedBy": "Trusted by",
+    "traders": "50,000+ traders",
+    "sections": {
+      "platform": {
+        "title": "Platform",
+        "links": {
+          "objectives": "Trading Objectives",
+          "pricing": "Pricing",
+          "dashboard": "Dashboard",
+          "payouts": "Payouts"
+        }
+      },
+      "company": {
+        "title": "Company",
+        "links": {
+          "about": "About Us",
+          "affiliate": "Affiliate Program",
+          "blog": "Blog",
+          "careers": "Careers"
+        }
+      },
+      "support": {
+        "title": "Support",
+        "links": {
+          "faq": "FAQ",
+          "discord": "Discord Community",
+          "contact": "Contact Us",
+          "rules": "Trading Rules"
+        }
+      },
+      "legal": {
+        "title": "Legal",
+        "links": {
+          "privacy": "Privacy Policy",
+          "terms": "Terms of Service",
+          "risk": "Risk Disclosure",
+          "refund": "Refund Policy"
+        }
+      }
+    }
   },
   "auth": {
     "signIn": "Sign In",

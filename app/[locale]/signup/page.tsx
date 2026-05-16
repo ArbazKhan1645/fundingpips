@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import Link from 'next/link';
+import { useTranslations } from 'next-intl';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
@@ -11,8 +11,9 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { authService } from '@/services/auth.service';
 import { useAuthStore } from '@/store/auth.store';
-import { useRouter } from 'next/navigation';
+import { Link, useRouter } from '@/i18n/navigation';
 import { COUNTRIES, TITLES } from '@/constants';
+import { BrandLogo } from '@/components/brand/logo';
 
 const step1Schema = z.object({
   firstName: z.string().min(2, 'First name is required'),
@@ -48,6 +49,7 @@ type FormData = {
 };
 
 export default function SignUpPage() {
+  const t = useTranslations('auth');
   const [step, setStep] = useState(1);
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirm, setShowConfirm] = useState(false);
@@ -100,12 +102,7 @@ export default function SignUpPage() {
           className="text-center mb-8"
         >
           <Link href="/" className="inline-flex items-center gap-2">
-            <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-amber-600 to-amber-400 flex items-center justify-center shadow-lg shadow-amber-500/30">
-              <span className="text-black font-black">LF</span>
-            </div>
-            <span className="font-bold text-white text-xl">
-              Lord<span className="gradient-text-blue">funded</span>
-            </span>
+            <BrandLogo className="h-10 w-10" textClassName="text-xl" />
           </Link>
         </motion.div>
 
@@ -143,7 +140,7 @@ export default function SignUpPage() {
           className="glass-strong rounded-3xl p-8 border border-white/10 shadow-2xl shadow-black/50"
         >
           <div className="text-center mb-8">
-            <h1 className="text-2xl font-black text-white">Create your account</h1>
+            <h1 className="text-2xl font-black text-white">{t('signUp')}</h1>
             <p className="text-sm text-slate-400 mt-1">
               Step {step} of {steps.length}: {steps[step - 1].label}
             </p>
@@ -163,7 +160,7 @@ export default function SignUpPage() {
                 <>
                   <div className="grid grid-cols-2 gap-4">
                     <div>
-                      <label className="block text-sm font-medium text-slate-300 mb-1.5">Title</label>
+                      <label className="block text-sm font-medium text-slate-300 mb-1.5">{t('title')}</label>
                       <select
                         className="w-full h-12 px-4 rounded-xl bg-white/5 border border-white/10 text-white text-sm focus:outline-none focus:border-amber-500/60 transition-all"
                         {...register('title')}
@@ -178,21 +175,21 @@ export default function SignUpPage() {
                       )}
                     </div>
                     <Input
-                      label="Date of Birth"
+                      label={t('dob')}
                       type="date"
                       error={(errors as Record<string, { message?: string }>).dob?.message}
                       {...register('dob')}
                     />
                   </div>
                   <Input
-                    label="First Name"
+                    label={t('firstName')}
                     placeholder="John"
                     icon={<User size={16} />}
                     error={(errors as Record<string, { message?: string }>).firstName?.message}
                     {...register('firstName')}
                   />
                   <Input
-                    label="Last Name"
+                    label={t('lastName')}
                     placeholder="Doe"
                     icon={<User size={16} />}
                     error={(errors as Record<string, { message?: string }>).lastName?.message}
@@ -204,7 +201,7 @@ export default function SignUpPage() {
               {step === 2 && (
                 <>
                   <div>
-                    <label className="block text-sm font-medium text-slate-300 mb-1.5">Country</label>
+                    <label className="block text-sm font-medium text-slate-300 mb-1.5">{t('country')}</label>
                     <select
                       className="w-full h-12 px-4 rounded-xl bg-white/5 border border-white/10 text-white text-sm focus:outline-none focus:border-amber-500/60 transition-all"
                       {...register('country')}
@@ -219,7 +216,7 @@ export default function SignUpPage() {
                     )}
                   </div>
                   <Input
-                    label="Email Address"
+                    label={t('email')}
                     type="email"
                     placeholder="you@example.com"
                     icon={<Mail size={16} />}
@@ -227,7 +224,7 @@ export default function SignUpPage() {
                     {...register('email')}
                   />
                   <Input
-                    label="Phone Number"
+                    label={t('phone')}
                     type="tel"
                     placeholder="+1 234 567 8900"
                     icon={<Phone size={16} />}
@@ -240,7 +237,7 @@ export default function SignUpPage() {
               {step === 3 && (
                 <>
                   <Input
-                    label="Password"
+                    label={t('password')}
                     type={showPassword ? 'text' : 'password'}
                     placeholder="Min 8 characters"
                     icon={<Lock size={16} />}
@@ -253,7 +250,7 @@ export default function SignUpPage() {
                     {...register('password')}
                   />
                   <Input
-                    label="Confirm Password"
+                    label={t('confirmPassword')}
                     type={showConfirm ? 'text' : 'password'}
                     placeholder="Repeat password"
                     icon={<Lock size={16} />}
@@ -282,7 +279,7 @@ export default function SignUpPage() {
                     className="flex-1"
                     onClick={() => setStep(step - 1)}
                   >
-                    Back
+                    {t('back')}
                   </Button>
                 )}
                 <Button
@@ -291,7 +288,7 @@ export default function SignUpPage() {
                   className="flex-1 gap-2"
                   loading={isLoading && step === 3}
                 >
-                  {step === 3 ? 'Create Account' : 'Continue'}
+                  {step === 3 ? t('submit') : t('next')}
                   {step < 3 && <ChevronRight size={16} />}
                 </Button>
               </div>
@@ -299,9 +296,9 @@ export default function SignUpPage() {
           </AnimatePresence>
 
           <p className="text-center text-sm text-slate-400 mt-6">
-            Already have an account?{' '}
+            {t('hasAccount')}{' '}
             <Link href="/signin" className="text-amber-400 font-medium hover:text-amber-300 transition-colors">
-              Sign In
+              {t('signIn')}
             </Link>
           </p>
         </motion.div>

@@ -1,12 +1,14 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import Link from 'next/link';
 import { useEffect, useState } from 'react';
+import { useTranslations } from 'next-intl';
 import { ArrowRight, TrendingUp, Shield, Zap, Users } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { useReducedMotion, isMobileDevice } from '@/lib/use-reduced-motion';
+import { Link } from '@/i18n/navigation';
+import { BrandMark } from '@/components/brand/logo';
 
 const metrics = [
   { label: 'Total Payouts', value: '$2.4M+', icon: TrendingUp, color: 'text-emerald-400', border: 'border-emerald-500/20' },
@@ -60,9 +62,7 @@ function HeroVisual() {
         {/* Card header */}
         <div className="px-5 pt-5 pb-3">
           <div className="flex items-center justify-between mb-3">
-            <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-amber-600 to-amber-400 flex items-center justify-center shadow-lg shadow-amber-500/30">
-              <span className="text-black font-black text-xs">LF</span>
-            </div>
+            <BrandMark className="h-9 w-9" />
             <span className="text-xs text-emerald-400 font-semibold bg-emerald-400/10 border border-emerald-400/20 px-2 py-0.5 rounded-full">● Live</span>
           </div>
           <p className="text-xs text-slate-400 mb-0.5">Funded Account</p>
@@ -164,6 +164,14 @@ function HeroVisual() {
 }
 
 export function HeroSection() {
+  const t = useTranslations('hero');
+  const metrics = [
+    { label: t('stat1Label'), value: '$2.4M+', icon: TrendingUp, color: 'text-emerald-400', border: 'border-emerald-500/20' },
+    { label: t('stat2Label'), value: '50K+', icon: Users, color: 'text-amber-400', border: 'border-amber-500/20' },
+    { label: t('stat3Label'), value: '94%', icon: Zap, color: 'text-amber-500', border: 'border-amber-600/20' },
+    { label: t('stat4Label'), value: '150+', icon: Shield, color: 'text-yellow-400', border: 'border-yellow-500/20' },
+  ];
+
   return (
     <section
       className="relative min-h-screen flex items-center overflow-hidden"
@@ -188,7 +196,7 @@ export function HeroSection() {
             >
               <Badge variant="info">
                 <span className="w-2 h-2 rounded-full bg-amber-400 animate-pulse inline-block shrink-0" />
-                Trusted by 50,000+ Traders Worldwide
+                {t('badge')}
               </Badge>
             </motion.div>
 
@@ -198,10 +206,9 @@ export function HeroSection() {
               transition={{ duration: 0.6, delay: 0.1 }}
               className="text-[clamp(2.8rem,6vw,4.5rem)] font-black leading-[1.08] tracking-tight"
             >
-              <span className="text-white block">Trade with</span>
-              <span className="gradient-text block">Confidence.</span>
-              <span className="text-white block">Get Funded</span>
-              <span className="text-slate-400 block">Today.</span>
+              <span className="text-white block">{t('title')}</span>
+              <span className="gradient-text block">{t('titleHighlight')}</span>
+              <span className="text-slate-400 block">{t('titleEnd')}</span>
             </motion.h1>
 
             <motion.p
@@ -210,9 +217,7 @@ export function HeroSection() {
               transition={{ duration: 0.6, delay: 0.2 }}
               className="text-lg text-slate-400 leading-relaxed max-w-md"
             >
-              Pass our evaluation and access up to{' '}
-              <span className="text-white font-semibold">$200,000</span> in funded capital.
-              Keep up to <span className="text-amber-400 font-semibold">90%</span> of your profits.
+              {t('description')}
             </motion.p>
 
             <motion.div
@@ -223,12 +228,12 @@ export function HeroSection() {
             >
               <Link href="/signup">
                 <Button variant="primary" size="lg" className="gap-2 shadow-2xl shadow-amber-500/25">
-                  Start Challenge
+                  {t('cta')}
                   <ArrowRight size={17} />
                 </Button>
               </Link>
               <Link href="/trading-objectives">
-                <Button variant="secondary" size="lg">View Objectives</Button>
+                <Button variant="secondary" size="lg">{t('ctaSecondary')}</Button>
               </Link>
             </motion.div>
 
