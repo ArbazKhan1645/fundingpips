@@ -40,6 +40,54 @@
         "destination": "/en/faq/index.html"
       },
       {
+        "source": "/kyc",
+        "destination": "/en/kyc/index.html"
+      },
+      {
+        "source": "/kyc/**",
+        "destination": "/en/kyc/index.html"
+      },
+      {
+        "source": "/verification-status",
+        "destination": "/en/verification-status/index.html"
+      },
+      {
+        "source": "/verification-status/**",
+        "destination": "/en/verification-status/index.html"
+      },
+      {
+        "source": "/verify-email",
+        "destination": "/en/verify-email/index.html"
+      },
+      {
+        "source": "/verify-email/**",
+        "destination": "/en/verify-email/index.html"
+      },
+      {
+        "source": "/forgot-password",
+        "destination": "/en/forgot-password/index.html"
+      },
+      {
+        "source": "/forgot-password/**",
+        "destination": "/en/forgot-password/index.html"
+      },
+      {
+        "source": "/reset-password",
+        "destination": "/en/reset-password/index.html"
+      },
+      {
+        "source": "/reset-password/**",
+        "destination": "/en/reset-password/index.html"
+      },
+      {
+        "source": "/two-factor",
+        "destination": "/en/two-factor/index.html"
+      },
+      {
+        "source": "/two-factor/**",
+        "destination": "/en/two-factor/index.html"
+      },
+      {
         "source": "/signin",
         "destination": "/en/signin/index.html"
       },
@@ -62,6 +110,822 @@
       {
         "source": "/trading-objectives/**",
         "destination": "/en/trading-objectives/index.html"
+      },
+      {
+        "source": "/select-dashboard",
+        "destination": "/en/select-dashboard/index.html"
+      },
+      {
+        "source": "/select-dashboard/**",
+        "destination": "/en/select-dashboard/index.html"
+      },
+      {
+        "source": "/admin/admins",
+        "destination": "/en/admin/admins/index.html"
+      },
+      {
+        "source": "/admin/admins/**",
+        "destination": "/en/admin/admins/index.html"
+      },
+      {
+        "source": "/admin/users",
+        "destination": "/en/admin/users/index.html"
+      },
+      {
+        "source": "/admin/users/**",
+        "destination": "/en/admin/users/index.html"
+      },
+      {
+        "source": "/admin/accounts",
+        "destination": "/en/admin/accounts/index.html"
+      },
+      {
+        "source": "/admin/accounts/**",
+        "destination": "/en/admin/accounts/index.html"
+      },
+      {
+        "source": "/admin/challenges",
+        "destination": "/en/admin/challenges/index.html"
+      },
+      {
+        "source": "/admin/challenges/**",
+        "destination": "/en/admin/challenges/index.html"
+      },
+      {
+        "source": "/admin/orders",
+        "destination": "/en/admin/orders/index.html"
+      },
+      {
+        "source": "/admin/orders/**",
+        "destination": "/en/admin/orders/index.html"
+      },
+      {
+        "source": "/admin/payouts",
+        "destination": "/en/admin/payouts/index.html"
+      },
+      {
+        "source": "/admin/payouts/**",
+        "destination": "/en/admin/payouts/index.html"
+      },
+      {
+        "source": "/admin/kyc",
+        "destination": "/en/admin/kyc/index.html"
+      },
+      {
+        "source": "/admin/kyc/**",
+        "destination": "/en/admin/kyc/index.html"
+      },
+      {
+        "source": "/admin/affiliates",
+        "destination": "/en/admin/affiliates/index.html"
+      },
+      {
+        "source": "/admin/affiliates/**",
+        "destination": "/en/admin/affiliates/index.html"
+      },
+      {
+        "source": "/admin/tickets",
+        "destination": "/en/admin/tickets/index.html"
+      },
+      {
+        "source": "/admin/tickets/**",
+        "destination": "/en/admin/tickets/index.html"
+      },
+      {
+        "source": "/admin/blog",
+        "destination": "/en/admin/blog/index.html"
+      },
+      {
+        "source": "/admin/blog/**",
+        "destination": "/en/admin/blog/index.html"
+      },
+      {
+        "source": "/admin/notifications",
+        "destination": "/en/admin/notifications/index.html"
+      },
+      {
+        "source": "/admin/notifications/**",
+        "destination": "/en/admin/notifications/index.html"
+      },
+      {
+        "source": "/admin/audits",
+        "destination": "/en/admin/audits/index.html"
+      },
+      {
+        "source": "/admin/audits/**",
+        "destination": "/en/admin/audits/index.html"
+      },
+      {
+        "source": "/admin/analytics",
+        "destination": "/en/admin/analytics/index.html"
+      },
+      {
+        "source": "/admin/analytics/**",
+        "destination": "/en/admin/analytics/index.html"
+      },
+      {
+        "source": "/admin/sessions",
+        "destination": "/en/admin/sessions/index.html"
+      },
+      {
+        "source": "/admin/sessions/**",
+        "destination": "/en/admin/sessions/index.html"
+      },
+      {
+        "source": "/admin/two-factor",
+        "destination": "/en/admin/two-factor/index.html"
+      },
+      {
+        "source": "/admin/two-factor/**",
+        "destination": "/en/admin/two-factor/index.html"
+      },
+      {
+        "source": "/admin/equity",
+        "destination": "/en/admin/equity/index.html"
+      },
+      {
+        "source": "/admin/equity/**",
+        "destination": "/en/admin/equity/index.html"
+      },
+      {
+        "source": "/admin/trades",
+        "destination": "/en/admin/trades/index.html"
+      },
+      {
+        "source": "/admin/trades/**",
+        "destination": "/en/admin/trades/index.html"
+      },
+      {
+        "source": "/admin/coupons",
+        "destination": "/en/admin/coupons/index.html"
+      },
+      {
+        "source": "/admin/coupons/**",
+        "destination": "/en/admin/coupons/index.html"
+      },
+      {
+        "source": "/admin/kyc-documents",
+        "destination": "/en/admin/kyc-documents/index.html"
+      },
+      {
+        "source": "/admin/kyc-documents/**",
+        "destination": "/en/admin/kyc-documents/index.html"
+      },
+      {
+        "source": "/admin/affiliate-referrals",
+        "destination": "/en/admin/affiliate-referrals/index.html"
+      },
+      {
+        "source": "/admin/affiliate-referrals/**",
+        "destination": "/en/admin/affiliate-referrals/index.html"
+      },
+      {
+        "source": "/admin/support-messages",
+        "destination": "/en/admin/support-messages/index.html"
+      },
+      {
+        "source": "/admin/support-messages/**",
+        "destination": "/en/admin/support-messages/index.html"
+      },
+      {
+        "source": "/admin/ai-chat-sessions",
+        "destination": "/en/admin/ai-chat-sessions/index.html"
+      },
+      {
+        "source": "/admin/ai-chat-sessions/**",
+        "destination": "/en/admin/ai-chat-sessions/index.html"
+      },
+      {
+        "source": "/admin/ai-chat-messages",
+        "destination": "/en/admin/ai-chat-messages/index.html"
+      },
+      {
+        "source": "/admin/ai-chat-messages/**",
+        "destination": "/en/admin/ai-chat-messages/index.html"
+      },
+      {
+        "source": "/admin/webhooks",
+        "destination": "/en/admin/webhooks/index.html"
+      },
+      {
+        "source": "/admin/webhooks/**",
+        "destination": "/en/admin/webhooks/index.html"
+      },
+      {
+        "source": "/admin/access-logs",
+        "destination": "/en/admin/access-logs/index.html"
+      },
+      {
+        "source": "/admin/access-logs/**",
+        "destination": "/en/admin/access-logs/index.html"
+      },
+      {
+        "source": "/admin/blocked-ips",
+        "destination": "/en/admin/blocked-ips/index.html"
+      },
+      {
+        "source": "/admin/blocked-ips/**",
+        "destination": "/en/admin/blocked-ips/index.html"
+      },
+      {
+        "source": "/admin/user-devices",
+        "destination": "/en/admin/user-devices/index.html"
+      },
+      {
+        "source": "/admin/user-devices/**",
+        "destination": "/en/admin/user-devices/index.html"
+      },
+      {
+        "source": "/admin/security-events",
+        "destination": "/en/admin/security-events/index.html"
+      },
+      {
+        "source": "/admin/security-events/**",
+        "destination": "/en/admin/security-events/index.html"
+      },
+      {
+        "source": "/admin",
+        "destination": "/en/admin/index.html"
+      },
+      {
+        "source": "/admin/**",
+        "destination": "/en/admin/index.html"
+      },
+      {
+        "source": "/ar/select-dashboard",
+        "destination": "/ar/select-dashboard/index.html"
+      },
+      {
+        "source": "/ar/select-dashboard/**",
+        "destination": "/ar/select-dashboard/index.html"
+      },
+      {
+        "source": "/ar/admin/admins",
+        "destination": "/ar/admin/admins/index.html"
+      },
+      {
+        "source": "/ar/admin/admins/**",
+        "destination": "/ar/admin/admins/index.html"
+      },
+      {
+        "source": "/ar/admin/users",
+        "destination": "/ar/admin/users/index.html"
+      },
+      {
+        "source": "/ar/admin/users/**",
+        "destination": "/ar/admin/users/index.html"
+      },
+      {
+        "source": "/ar/admin/accounts",
+        "destination": "/ar/admin/accounts/index.html"
+      },
+      {
+        "source": "/ar/admin/accounts/**",
+        "destination": "/ar/admin/accounts/index.html"
+      },
+      {
+        "source": "/ar/admin/challenges",
+        "destination": "/ar/admin/challenges/index.html"
+      },
+      {
+        "source": "/ar/admin/challenges/**",
+        "destination": "/ar/admin/challenges/index.html"
+      },
+      {
+        "source": "/ar/admin/orders",
+        "destination": "/ar/admin/orders/index.html"
+      },
+      {
+        "source": "/ar/admin/orders/**",
+        "destination": "/ar/admin/orders/index.html"
+      },
+      {
+        "source": "/ar/admin/payouts",
+        "destination": "/ar/admin/payouts/index.html"
+      },
+      {
+        "source": "/ar/admin/payouts/**",
+        "destination": "/ar/admin/payouts/index.html"
+      },
+      {
+        "source": "/ar/admin/kyc",
+        "destination": "/ar/admin/kyc/index.html"
+      },
+      {
+        "source": "/ar/admin/kyc/**",
+        "destination": "/ar/admin/kyc/index.html"
+      },
+      {
+        "source": "/ar/admin/affiliates",
+        "destination": "/ar/admin/affiliates/index.html"
+      },
+      {
+        "source": "/ar/admin/affiliates/**",
+        "destination": "/ar/admin/affiliates/index.html"
+      },
+      {
+        "source": "/ar/admin/tickets",
+        "destination": "/ar/admin/tickets/index.html"
+      },
+      {
+        "source": "/ar/admin/tickets/**",
+        "destination": "/ar/admin/tickets/index.html"
+      },
+      {
+        "source": "/ar/admin/blog",
+        "destination": "/ar/admin/blog/index.html"
+      },
+      {
+        "source": "/ar/admin/blog/**",
+        "destination": "/ar/admin/blog/index.html"
+      },
+      {
+        "source": "/ar/admin/notifications",
+        "destination": "/ar/admin/notifications/index.html"
+      },
+      {
+        "source": "/ar/admin/notifications/**",
+        "destination": "/ar/admin/notifications/index.html"
+      },
+      {
+        "source": "/ar/admin/audits",
+        "destination": "/ar/admin/audits/index.html"
+      },
+      {
+        "source": "/ar/admin/audits/**",
+        "destination": "/ar/admin/audits/index.html"
+      },
+      {
+        "source": "/ar/admin/analytics",
+        "destination": "/ar/admin/analytics/index.html"
+      },
+      {
+        "source": "/ar/admin/analytics/**",
+        "destination": "/ar/admin/analytics/index.html"
+      },
+      {
+        "source": "/ar/admin/sessions",
+        "destination": "/ar/admin/sessions/index.html"
+      },
+      {
+        "source": "/ar/admin/sessions/**",
+        "destination": "/ar/admin/sessions/index.html"
+      },
+      {
+        "source": "/ar/admin/two-factor",
+        "destination": "/ar/admin/two-factor/index.html"
+      },
+      {
+        "source": "/ar/admin/two-factor/**",
+        "destination": "/ar/admin/two-factor/index.html"
+      },
+      {
+        "source": "/ar/admin/equity",
+        "destination": "/ar/admin/equity/index.html"
+      },
+      {
+        "source": "/ar/admin/equity/**",
+        "destination": "/ar/admin/equity/index.html"
+      },
+      {
+        "source": "/ar/admin/trades",
+        "destination": "/ar/admin/trades/index.html"
+      },
+      {
+        "source": "/ar/admin/trades/**",
+        "destination": "/ar/admin/trades/index.html"
+      },
+      {
+        "source": "/ar/admin/coupons",
+        "destination": "/ar/admin/coupons/index.html"
+      },
+      {
+        "source": "/ar/admin/coupons/**",
+        "destination": "/ar/admin/coupons/index.html"
+      },
+      {
+        "source": "/ar/admin/kyc-documents",
+        "destination": "/ar/admin/kyc-documents/index.html"
+      },
+      {
+        "source": "/ar/admin/kyc-documents/**",
+        "destination": "/ar/admin/kyc-documents/index.html"
+      },
+      {
+        "source": "/ar/admin/affiliate-referrals",
+        "destination": "/ar/admin/affiliate-referrals/index.html"
+      },
+      {
+        "source": "/ar/admin/affiliate-referrals/**",
+        "destination": "/ar/admin/affiliate-referrals/index.html"
+      },
+      {
+        "source": "/ar/admin/support-messages",
+        "destination": "/ar/admin/support-messages/index.html"
+      },
+      {
+        "source": "/ar/admin/support-messages/**",
+        "destination": "/ar/admin/support-messages/index.html"
+      },
+      {
+        "source": "/ar/admin/ai-chat-sessions",
+        "destination": "/ar/admin/ai-chat-sessions/index.html"
+      },
+      {
+        "source": "/ar/admin/ai-chat-sessions/**",
+        "destination": "/ar/admin/ai-chat-sessions/index.html"
+      },
+      {
+        "source": "/ar/admin/ai-chat-messages",
+        "destination": "/ar/admin/ai-chat-messages/index.html"
+      },
+      {
+        "source": "/ar/admin/ai-chat-messages/**",
+        "destination": "/ar/admin/ai-chat-messages/index.html"
+      },
+      {
+        "source": "/ar/admin/webhooks",
+        "destination": "/ar/admin/webhooks/index.html"
+      },
+      {
+        "source": "/ar/admin/webhooks/**",
+        "destination": "/ar/admin/webhooks/index.html"
+      },
+      {
+        "source": "/ar/admin/access-logs",
+        "destination": "/ar/admin/access-logs/index.html"
+      },
+      {
+        "source": "/ar/admin/access-logs/**",
+        "destination": "/ar/admin/access-logs/index.html"
+      },
+      {
+        "source": "/ar/admin/blocked-ips",
+        "destination": "/ar/admin/blocked-ips/index.html"
+      },
+      {
+        "source": "/ar/admin/blocked-ips/**",
+        "destination": "/ar/admin/blocked-ips/index.html"
+      },
+      {
+        "source": "/ar/admin/user-devices",
+        "destination": "/ar/admin/user-devices/index.html"
+      },
+      {
+        "source": "/ar/admin/user-devices/**",
+        "destination": "/ar/admin/user-devices/index.html"
+      },
+      {
+        "source": "/ar/admin/security-events",
+        "destination": "/ar/admin/security-events/index.html"
+      },
+      {
+        "source": "/ar/admin/security-events/**",
+        "destination": "/ar/admin/security-events/index.html"
+      },
+      {
+        "source": "/ar/kyc",
+        "destination": "/ar/kyc/index.html"
+      },
+      {
+        "source": "/ar/kyc/**",
+        "destination": "/ar/kyc/index.html"
+      },
+      {
+        "source": "/ar/verification-status",
+        "destination": "/ar/verification-status/index.html"
+      },
+      {
+        "source": "/ar/verification-status/**",
+        "destination": "/ar/verification-status/index.html"
+      },
+      {
+        "source": "/ar/verify-email",
+        "destination": "/ar/verify-email/index.html"
+      },
+      {
+        "source": "/ar/verify-email/**",
+        "destination": "/ar/verify-email/index.html"
+      },
+      {
+        "source": "/ar/forgot-password",
+        "destination": "/ar/forgot-password/index.html"
+      },
+      {
+        "source": "/ar/forgot-password/**",
+        "destination": "/ar/forgot-password/index.html"
+      },
+      {
+        "source": "/ar/reset-password",
+        "destination": "/ar/reset-password/index.html"
+      },
+      {
+        "source": "/ar/reset-password/**",
+        "destination": "/ar/reset-password/index.html"
+      },
+      {
+        "source": "/ar/two-factor",
+        "destination": "/ar/two-factor/index.html"
+      },
+      {
+        "source": "/ar/two-factor/**",
+        "destination": "/ar/two-factor/index.html"
+      },
+      {
+        "source": "/ar/admin",
+        "destination": "/ar/admin/index.html"
+      },
+      {
+        "source": "/ar/admin/**",
+        "destination": "/ar/admin/index.html"
+      },
+      {
+        "source": "/ur/select-dashboard",
+        "destination": "/ur/select-dashboard/index.html"
+      },
+      {
+        "source": "/ur/select-dashboard/**",
+        "destination": "/ur/select-dashboard/index.html"
+      },
+      {
+        "source": "/ur/admin/admins",
+        "destination": "/ur/admin/admins/index.html"
+      },
+      {
+        "source": "/ur/admin/admins/**",
+        "destination": "/ur/admin/admins/index.html"
+      },
+      {
+        "source": "/ur/admin/users",
+        "destination": "/ur/admin/users/index.html"
+      },
+      {
+        "source": "/ur/admin/users/**",
+        "destination": "/ur/admin/users/index.html"
+      },
+      {
+        "source": "/ur/admin/accounts",
+        "destination": "/ur/admin/accounts/index.html"
+      },
+      {
+        "source": "/ur/admin/accounts/**",
+        "destination": "/ur/admin/accounts/index.html"
+      },
+      {
+        "source": "/ur/admin/challenges",
+        "destination": "/ur/admin/challenges/index.html"
+      },
+      {
+        "source": "/ur/admin/challenges/**",
+        "destination": "/ur/admin/challenges/index.html"
+      },
+      {
+        "source": "/ur/admin/orders",
+        "destination": "/ur/admin/orders/index.html"
+      },
+      {
+        "source": "/ur/admin/orders/**",
+        "destination": "/ur/admin/orders/index.html"
+      },
+      {
+        "source": "/ur/admin/payouts",
+        "destination": "/ur/admin/payouts/index.html"
+      },
+      {
+        "source": "/ur/admin/payouts/**",
+        "destination": "/ur/admin/payouts/index.html"
+      },
+      {
+        "source": "/ur/admin/kyc",
+        "destination": "/ur/admin/kyc/index.html"
+      },
+      {
+        "source": "/ur/admin/kyc/**",
+        "destination": "/ur/admin/kyc/index.html"
+      },
+      {
+        "source": "/ur/admin/affiliates",
+        "destination": "/ur/admin/affiliates/index.html"
+      },
+      {
+        "source": "/ur/admin/affiliates/**",
+        "destination": "/ur/admin/affiliates/index.html"
+      },
+      {
+        "source": "/ur/admin/tickets",
+        "destination": "/ur/admin/tickets/index.html"
+      },
+      {
+        "source": "/ur/admin/tickets/**",
+        "destination": "/ur/admin/tickets/index.html"
+      },
+      {
+        "source": "/ur/admin/blog",
+        "destination": "/ur/admin/blog/index.html"
+      },
+      {
+        "source": "/ur/admin/blog/**",
+        "destination": "/ur/admin/blog/index.html"
+      },
+      {
+        "source": "/ur/admin/notifications",
+        "destination": "/ur/admin/notifications/index.html"
+      },
+      {
+        "source": "/ur/admin/notifications/**",
+        "destination": "/ur/admin/notifications/index.html"
+      },
+      {
+        "source": "/ur/admin/audits",
+        "destination": "/ur/admin/audits/index.html"
+      },
+      {
+        "source": "/ur/admin/audits/**",
+        "destination": "/ur/admin/audits/index.html"
+      },
+      {
+        "source": "/ur/admin/analytics",
+        "destination": "/ur/admin/analytics/index.html"
+      },
+      {
+        "source": "/ur/admin/analytics/**",
+        "destination": "/ur/admin/analytics/index.html"
+      },
+      {
+        "source": "/ur/admin/sessions",
+        "destination": "/ur/admin/sessions/index.html"
+      },
+      {
+        "source": "/ur/admin/sessions/**",
+        "destination": "/ur/admin/sessions/index.html"
+      },
+      {
+        "source": "/ur/admin/two-factor",
+        "destination": "/ur/admin/two-factor/index.html"
+      },
+      {
+        "source": "/ur/admin/two-factor/**",
+        "destination": "/ur/admin/two-factor/index.html"
+      },
+      {
+        "source": "/ur/admin/equity",
+        "destination": "/ur/admin/equity/index.html"
+      },
+      {
+        "source": "/ur/admin/equity/**",
+        "destination": "/ur/admin/equity/index.html"
+      },
+      {
+        "source": "/ur/admin/trades",
+        "destination": "/ur/admin/trades/index.html"
+      },
+      {
+        "source": "/ur/admin/trades/**",
+        "destination": "/ur/admin/trades/index.html"
+      },
+      {
+        "source": "/ur/admin/coupons",
+        "destination": "/ur/admin/coupons/index.html"
+      },
+      {
+        "source": "/ur/admin/coupons/**",
+        "destination": "/ur/admin/coupons/index.html"
+      },
+      {
+        "source": "/ur/admin/kyc-documents",
+        "destination": "/ur/admin/kyc-documents/index.html"
+      },
+      {
+        "source": "/ur/admin/kyc-documents/**",
+        "destination": "/ur/admin/kyc-documents/index.html"
+      },
+      {
+        "source": "/ur/admin/affiliate-referrals",
+        "destination": "/ur/admin/affiliate-referrals/index.html"
+      },
+      {
+        "source": "/ur/admin/affiliate-referrals/**",
+        "destination": "/ur/admin/affiliate-referrals/index.html"
+      },
+      {
+        "source": "/ur/admin/support-messages",
+        "destination": "/ur/admin/support-messages/index.html"
+      },
+      {
+        "source": "/ur/admin/support-messages/**",
+        "destination": "/ur/admin/support-messages/index.html"
+      },
+      {
+        "source": "/ur/admin/ai-chat-sessions",
+        "destination": "/ur/admin/ai-chat-sessions/index.html"
+      },
+      {
+        "source": "/ur/admin/ai-chat-sessions/**",
+        "destination": "/ur/admin/ai-chat-sessions/index.html"
+      },
+      {
+        "source": "/ur/admin/ai-chat-messages",
+        "destination": "/ur/admin/ai-chat-messages/index.html"
+      },
+      {
+        "source": "/ur/admin/ai-chat-messages/**",
+        "destination": "/ur/admin/ai-chat-messages/index.html"
+      },
+      {
+        "source": "/ur/admin/webhooks",
+        "destination": "/ur/admin/webhooks/index.html"
+      },
+      {
+        "source": "/ur/admin/webhooks/**",
+        "destination": "/ur/admin/webhooks/index.html"
+      },
+      {
+        "source": "/ur/admin/access-logs",
+        "destination": "/ur/admin/access-logs/index.html"
+      },
+      {
+        "source": "/ur/admin/access-logs/**",
+        "destination": "/ur/admin/access-logs/index.html"
+      },
+      {
+        "source": "/ur/admin/blocked-ips",
+        "destination": "/ur/admin/blocked-ips/index.html"
+      },
+      {
+        "source": "/ur/admin/blocked-ips/**",
+        "destination": "/ur/admin/blocked-ips/index.html"
+      },
+      {
+        "source": "/ur/admin/user-devices",
+        "destination": "/ur/admin/user-devices/index.html"
+      },
+      {
+        "source": "/ur/admin/user-devices/**",
+        "destination": "/ur/admin/user-devices/index.html"
+      },
+      {
+        "source": "/ur/admin/security-events",
+        "destination": "/ur/admin/security-events/index.html"
+      },
+      {
+        "source": "/ur/admin/security-events/**",
+        "destination": "/ur/admin/security-events/index.html"
+      },
+      {
+        "source": "/ur/kyc",
+        "destination": "/ur/kyc/index.html"
+      },
+      {
+        "source": "/ur/kyc/**",
+        "destination": "/ur/kyc/index.html"
+      },
+      {
+        "source": "/ur/verification-status",
+        "destination": "/ur/verification-status/index.html"
+      },
+      {
+        "source": "/ur/verification-status/**",
+        "destination": "/ur/verification-status/index.html"
+      },
+      {
+        "source": "/ur/verify-email",
+        "destination": "/ur/verify-email/index.html"
+      },
+      {
+        "source": "/ur/verify-email/**",
+        "destination": "/ur/verify-email/index.html"
+      },
+      {
+        "source": "/ur/forgot-password",
+        "destination": "/ur/forgot-password/index.html"
+      },
+      {
+        "source": "/ur/forgot-password/**",
+        "destination": "/ur/forgot-password/index.html"
+      },
+      {
+        "source": "/ur/reset-password",
+        "destination": "/ur/reset-password/index.html"
+      },
+      {
+        "source": "/ur/reset-password/**",
+        "destination": "/ur/reset-password/index.html"
+      },
+      {
+        "source": "/ur/two-factor",
+        "destination": "/ur/two-factor/index.html"
+      },
+      {
+        "source": "/ur/two-factor/**",
+        "destination": "/ur/two-factor/index.html"
+      },
+      {
+        "source": "/ur/admin",
+        "destination": "/ur/admin/index.html"
+      },
+      {
+        "source": "/ur/admin/**",
+        "destination": "/ur/admin/index.html"
       },
       {
         "source": "/dashboard/accounts",

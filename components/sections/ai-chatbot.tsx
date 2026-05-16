@@ -13,29 +13,16 @@ const SUGGESTIONS = [
   'What leverage is available?',
 ];
 
-const mockResponses = [
-  'Our challenges start from just $99 for a $10K account with up to 90% profit split.',
-  'The evaluation has two phases. Phase 1 requires 8% profit, Phase 2 requires 5%. Both have 5% daily and 10% max drawdown.',
-  'Payouts are processed within 1–2 business days. We support USDT, bank transfer, Skrill, and Neteller.',
-  'We offer leverage up to 1:100 on Forex and 1:50 on other instruments across all account sizes.',
-  'No time limits on our challenges! Take as long as you need to reach your targets.',
-  'Yes — we have a scaling plan where you can grow your funded account from $10K up to $4 million.',
-  'Support is available 24/5 via live chat, Discord, and email. Premium accounts get a dedicated manager.',
-];
-
-// Button is 52px wide, 16px from right edge → window sits to its left with 10px gap
-// right offset = 16 + 52 + 10 = 78px
-const WINDOW_RIGHT = 78;
-
 export function AIChatbot() {
   const [isOpen, setIsOpen] = useState(false);
   const [inputValue, setInputValue] = useState('');
   const [isMobile, setIsMobile] = useState(false);
+  const [sessionId, setSessionId] = useState<string | undefined>();
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
   const { messages, isTyping, addMessage, setTyping } = useChatStore();
 
-  const isButtonHidden = isOpen && window.innerWidth < 640;
+  const isButtonHidden = isOpen && typeof window !== 'undefined' && window.innerWidth < 640;
   const windowRight = isButtonHidden ? 16 : 78;
 
   useEffect(() => {
@@ -66,10 +53,7 @@ export function AIChatbot() {
     if (isOpen) {
       setTimeout(() => {
         messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
-        // Never auto-focus on mobile to prevent keyboard
-        if (!isMobile) {
-          inputRef.current?.focus();
-        }
+        if (!isMobile) inputRef.current?.focus();
       }, 120);
     }
   }, [messages, isOpen, isMobile]);
@@ -77,26 +61,61 @@ export function AIChatbot() {
   const handleSend = async (text?: string) => {
     const msg = (text ?? inputValue).trim();
     if (!msg) return;
+
     addMessage({ id: Date.now().toString(), role: 'user', content: msg, timestamp: new Date() });
     setInputValue('');
     setTyping(true);
-    await new Promise((res) => setTimeout(res, 900 + Math.random() * 600));
-    setTyping(false);
-    addMessage({
-      id: (Date.now() + 1).toString(),
-      role: 'assistant',
-      content: mockResponses[Math.floor(Math.random() * mockResponses.length)],
-      timestamp: new Date(),
-    });
+
+    try {
+      let visitorId = localStorage.getItem('lordfunded.visitor');
+      if (!visitorId) {
+        visitorId = crypto.randomUUID();
+        localStorage.setItem('lordfunded.visitor', visitorId);
+      }
+
+      const response = await fetch('/api/ai-chat', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          sessionId,
+          visitorId,
+          messages: [...messages, { role: 'user' as const, content: msg }].map((m) => ({
+            role: m.role,
+            content: m.content,
+          })),
+        }),
+      });
+
+      const data = await response.json();
+      if (data.sessionId) setSessionId(data.sessionId);
+
+      addMessage({
+        id: (Date.now() + 1).toString(),
+        role: 'assistant',
+        content: data.message?.content ?? 'I could not process that request right now. Please try again.',
+        timestamp: new Date(),
+      });
+    } catch {
+      addMessage({
+        id: (Date.now() + 1).toString(),
+        role: 'assistant',
+        content: 'I could not connect to Lordfunded AI right now. Please try again shortly.',
+        timestamp: new Date(),
+      });
+    } finally {
+      setTyping(false);
+    }
   };
 
   const handleKeyDown = (e: React.KeyboardEvent) => {
-    if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); handleSend(); }
+    if (e.key === 'Enter' && !e.shiftKey) {
+      e.preventDefault();
+      handleSend();
+    }
   };
 
   return (
     <>
-      {/* ── Chat Window — opens to the LEFT of the toggle button ── */}
       <AnimatePresence>
         {isOpen && (
           <motion.div
@@ -105,13 +124,8 @@ export function AIChatbot() {
             exit={{ opacity: 0, x: 20, scale: 0.95 }}
             transition={{ type: 'spring', damping: 26, stiffness: 300 }}
             className="fixed z-40 flex flex-col rounded-2xl overflow-hidden shadow-2xl shadow-black/70 w-[320px] sm:w-[360px]"
-            style={{
-              bottom: 16,
-              right: windowRight,
-              maxHeight: 'calc(100vh - 32px)',
-            }}
+            style={{ bottom: 16, right: windowRight, maxHeight: 'calc(100vh - 32px)' }}
           >
-            {/* Header */}
             <div className="flex items-center justify-between px-4 py-3 bg-gradient-to-r from-[#1a1000] to-[#1f1500] border-b border-white/8 shrink-0">
               <div className="flex items-center gap-3">
                 <div className="relative">
@@ -133,7 +147,6 @@ export function AIChatbot() {
               </button>
             </div>
 
-            {/* Messages — flex-1 so it expands to fill available height */}
             <div className="flex-1 overflow-y-auto p-4 space-y-3 bg-[#0f0b00] hide-scrollbar min-h-0">
               {messages.map((msg) => (
                 <motion.div
@@ -163,12 +176,7 @@ export function AIChatbot() {
 
               <AnimatePresence>
                 {isTyping && (
-                  <motion.div
-                    initial={{ opacity: 0, y: 8 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0 }}
-                    className="flex gap-2"
-                  >
+                  <motion.div initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0 }} className="flex gap-2">
                     <div className="w-6 h-6 rounded-full bg-gradient-to-br from-amber-600 to-amber-400 flex items-center justify-center shrink-0">
                       <Bot size={12} className="text-black" />
                     </div>
@@ -188,7 +196,6 @@ export function AIChatbot() {
               <div ref={messagesEndRef} />
             </div>
 
-            {/* Quick replies — only on first message */}
             {messages.length === 1 && (
               <div className="px-4 pb-2 pt-1 bg-[#0f0b00] flex flex-wrap gap-1.5 shrink-0">
                 {SUGGESTIONS.map((s) => (
@@ -203,7 +210,6 @@ export function AIChatbot() {
               </div>
             )}
 
-            {/* Input */}
             <div className="px-3 pb-3 pt-2 bg-[#0f0b00] border-t border-white/6 shrink-0">
               <div className="flex items-center gap-2 bg-white/5 border border-white/10 rounded-xl px-3 py-2 focus-within:border-amber-500/40 transition-all">
                 <input
@@ -229,15 +235,13 @@ export function AIChatbot() {
         )}
       </AnimatePresence>
 
-      {/* ── Toggle Button ── */}
       <motion.button
         onClick={() => setIsOpen(!isOpen)}
         whileHover={{ scale: 1.08 }}
         whileTap={{ scale: 0.94 }}
         className={cn(
-          "fixed bottom-4 right-4 z-50 rounded-2xl bg-gradient-to-br from-amber-600 to-amber-400 flex items-center justify-center shadow-2xl shadow-amber-500/40 text-black",
-          // Hide button on small screens when chat is open
-          isButtonHidden ? "hidden" : ""
+          'fixed bottom-4 right-4 z-50 rounded-2xl bg-gradient-to-br from-amber-600 to-amber-400 flex items-center justify-center shadow-2xl shadow-amber-500/40 text-black',
+          isButtonHidden ? 'hidden' : ''
         )}
         style={{ width: 52, height: 52 }}
       >

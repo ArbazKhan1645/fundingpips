@@ -1,6 +1,6 @@
 export const APP_NAME = 'Lordfunded';
 export const APP_URL = process.env.NEXT_PUBLIC_APP_URL || 'http://localhost:3000';
-export const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000/api';
+export const API_URL = process.env.NEXT_PUBLIC_API_URL || '/api';
 
 export const LOCALES = ['en', 'ar', 'ur'] as const;
 export const DEFAULT_LOCALE = 'en';

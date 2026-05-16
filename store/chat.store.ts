@@ -12,7 +12,7 @@ interface ChatStore {
 const INITIAL_MESSAGE: ChatMessage = {
   id: '0',
   role: 'assistant',
-  content: 'Hello! I\'m your Lordfunded AI assistant. How can I help you today? I can answer questions about our challenges, trading rules, payouts, and more! 🚀',
+  content: 'Hello! I\'m your Lordfunded AI assistant. How can I help you today? I can answer questions about our challenges, trading rules, payouts, and more.',
   timestamp: new Date(),
 };
 

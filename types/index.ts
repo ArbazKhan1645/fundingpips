@@ -8,7 +8,12 @@ export interface User {
   phone?: string;
   country?: string;
   avatar?: string;
-  role: 'trader' | 'admin';
+  role: 'trader' | 'admin' | 'super_admin';
+  emailVerified?: boolean;
+  twoFactorEnabled?: boolean;
+  kycStatus?: 'unverified' | 'pending' | 'approved' | 'rejected';
+  isBanned?: boolean;
+  isDeleted?: boolean;
   createdAt: string;
 }
 

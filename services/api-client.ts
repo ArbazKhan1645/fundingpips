@@ -1,5 +1,6 @@
 import axios, { type AxiosInstance, type AxiosResponse, type InternalAxiosRequestConfig } from 'axios';
 import { API_URL } from '@/constants';
+import { supabase } from '@/lib/supabase/client';
 
 const apiClient: AxiosInstance = axios.create({
   baseURL: API_URL,
@@ -11,11 +12,11 @@ const apiClient: AxiosInstance = axios.create({
 });
 
 apiClient.interceptors.request.use(
-  (config: InternalAxiosRequestConfig) => {
+  async (config: InternalAxiosRequestConfig) => {
     if (typeof window !== 'undefined') {
-      const token = localStorage.getItem('fp_token');
-      if (token) {
-        config.headers.Authorization = `Bearer ${token}`;
+      const { data } = await supabase.auth.getSession();
+      if (data.session?.access_token) {
+        config.headers.Authorization = `Bearer ${data.session.access_token}`;
       }
     }
     return config;
@@ -28,7 +29,7 @@ apiClient.interceptors.response.use(
   async (error) => {
     if (error.response?.status === 401) {
       if (typeof window !== 'undefined') {
-        localStorage.removeItem('fp_token');
+        await supabase.auth.signOut();
         window.location.href = '/signin';
       }
     }

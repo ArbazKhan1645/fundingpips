@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useCallback, useState } from 'react';
 import { motion } from 'framer-motion';
 import { useTranslations } from 'next-intl';
 import { useForm } from 'react-hook-form';
@@ -13,6 +13,7 @@ import { authService } from '@/services/auth.service';
 import { useAuthStore } from '@/store/auth.store';
 import { Link, useRouter } from '@/i18n/navigation';
 import { BrandLogo } from '@/components/brand/logo';
+import { TurnstileWidget } from '@/components/security/turnstile-widget';
 
 const schema = z.object({
   email: z.string().email('Invalid email address'),
@@ -27,8 +28,11 @@ export default function SignInPage() {
   const [showPassword, setShowPassword] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [captchaToken, setCaptchaToken] = useState('');
   const { login } = useAuthStore();
   const router = useRouter();
+  const captchaEnabled = Boolean(process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY);
+  const handleCaptcha = useCallback((token: string) => setCaptchaToken(token), []);
 
   const { register, handleSubmit, formState: { errors } } = useForm<FormData>({
     resolver: zodResolver(schema),
@@ -38,11 +42,28 @@ export default function SignInPage() {
     setIsLoading(true);
     setError(null);
     try {
-      const res = await authService.login(data);
+      const res = await authService.login({ ...data, captchaToken });
       login(res.user, res.token);
-      router.push('/dashboard');
-    } catch {
-      setError('Invalid credentials. Try any email/password.');
+      if (!res.user.emailVerified) {
+        router.push(`/verify-email?email=${encodeURIComponent(data.email)}`);
+        return;
+      }
+      if (res.requiresTwoFactor) {
+        router.push('/two-factor');
+        return;
+      }
+      if (res.user.role === 'admin' || res.user.role === 'super_admin') {
+        router.push('/select-dashboard');
+        return;
+      }
+      router.push(res.user.kycStatus === 'approved' ? '/dashboard' : '/verification-status');
+    } catch (reason) {
+      const message = reason instanceof Error ? reason.message : 'Invalid credentials.';
+      if (message.toLowerCase().includes('email not confirmed')) {
+        router.push(`/verify-email?email=${encodeURIComponent(data.email)}`);
+        return;
+      }
+      setError(message);
     } finally {
       setIsLoading(false);
     }
@@ -53,7 +74,7 @@ export default function SignInPage() {
     try {
       const res = await authService.googleLogin();
       login(res.user, res.token);
-      router.push('/dashboard');
+      router.push(res.user.role === 'admin' || res.user.role === 'super_admin' ? '/select-dashboard' : '/dashboard');
     } finally {
       setIsLoading(false);
     }
@@ -127,7 +148,7 @@ export default function SignInPage() {
             <div className="space-y-1.5">
               <div className="flex items-center justify-between">
                 <label className="text-sm font-medium text-slate-300">{t('password')}</label>
-                <Link href="#" className="text-xs text-amber-400 hover:text-amber-300 transition-colors">
+                <Link href="/forgot-password" className="text-xs text-amber-400 hover:text-amber-300 transition-colors">
                   {t('forgotPassword')}
                 </Link>
               </div>
@@ -168,12 +189,15 @@ export default function SignInPage() {
               </motion.p>
             )}
 
+            <TurnstileWidget action="signin" onVerify={handleCaptcha} />
+
             <Button
               type="submit"
               variant="primary"
               className="w-full gap-2 mt-2"
               size="lg"
               loading={isLoading}
+              disabled={captchaEnabled && !captchaToken}
             >
               {t('signIn')}
               <ArrowRight size={16} />

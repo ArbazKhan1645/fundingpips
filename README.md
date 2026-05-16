@@ -16,6 +16,32 @@ bun dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
+## Backend Setup
+
+This project now uses Supabase for auth, Postgres, RLS, RPC functions, admin operations, and AI chat persistence.
+
+1. Create a Supabase project.
+2. Copy `.env.example` to `.env.local` and fill:
+   - `NEXT_PUBLIC_SUPABASE_URL`
+   - `NEXT_PUBLIC_SUPABASE_ANON_KEY`
+   - `SUPABASE_SERVICE_ROLE_KEY`
+   - optional provider keys such as `OPENAI_API_KEY`, Stripe, NOWPayments, SendGrid, Twilio, broker API.
+3. Apply migrations in order from `supabase/migrations/`.
+4. Run `supabase/seed.sql` for starter challenge/blog data.
+5. Configure Supabase Auth redirect URLs:
+   - `http://localhost:3000/auth/callback`
+   - your production URL `/auth/callback`
+
+Backend endpoints currently included:
+
+- `GET /api/challenges`
+- `POST /api/challenges` for admin challenge creation
+- `POST /api/payouts/request`
+- `GET /api/admin/analytics`
+- `POST /api/ai-chat`
+
+Important: API routes require a server runtime. Do not deploy this version as a pure static export.
+
 You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
 This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
